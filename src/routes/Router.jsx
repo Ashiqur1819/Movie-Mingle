@@ -14,6 +14,7 @@ const Router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    loader: () => fetch("http://localhost:3000/movies"),
     errorElement: <Error></Error>,
     children: [
       {

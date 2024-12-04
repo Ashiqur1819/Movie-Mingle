@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { FavoriteContext } from "../layouts/MainLayout";
 
 
 const MovieDetails = () => {
 
     const movie = useLoaderData()
    const {_id, poster, title, genre, year, duration, rating, summary } = movie;
-   const [movies, setMovies] = useState([])
+   const {movies, setMovies, handleAddToFavourite} = useContext(FavoriteContext)
+
+//    const [movies, setMovies] = useState([])
    const navigate = useNavigate()
 
    const handleDeleteMovie = _id => {
@@ -64,7 +67,7 @@ const MovieDetails = () => {
             </p>
           </div>
           <div className="flex items-center gap-6 mt-6">
-            <button className="bg-[#c78201] w-full px-6 py-2 rounded-md text-white font-semibold text-lg">
+            <button onClick={() => handleAddToFavourite(_id)} className="bg-[#c78201] w-full px-6 py-2 rounded-md text-white font-semibold text-lg">
               Add To Favourite
             </button>
             <button onClick={() => {handleDeleteMovie(_id)}} className="bg-[#E50914] w-full px-6 py-2 rounded-md text-white font-semibold text-lg ">
