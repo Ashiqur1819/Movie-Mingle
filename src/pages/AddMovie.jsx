@@ -45,10 +45,22 @@ const AddMovie = () => {
     }
 
 
-    const movie = {poster, title, genre, year, duration, rating, summary}
+    const newMovie = { poster, title, genre, year, duration, rating, summary };
     
     // Send data from client side to server side
-    
+    fetch("http://localhost:3000/movies", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newMovie),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // data.acknowledged
+        form.reset();
+        setRating(null)
+      });
 
 
   
@@ -113,6 +125,7 @@ const AddMovie = () => {
               id=""
               className="input input-bordered border border-gray-500 bg-[#1D232A] focus:border-gray-300 text-white"
             >
+              <option value="Action" >Choose Genre</option>
               <option value="Action">Action</option>
               <option value="Drama">Drama</option>
               <option value="Thriller">Thriller</option>

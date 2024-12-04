@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 
 const MainLayout = () => {
     return (
-      <div className="bg-[#001D20]">
+      <div className="bg-[#001D20] max-w-7xl mx-auto">
         <header>
           <Navbar></Navbar>
         </header>
