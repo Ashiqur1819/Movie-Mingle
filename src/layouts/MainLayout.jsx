@@ -1,12 +1,17 @@
 import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 
 const MainLayout = () => {
     return (
-        <div>
-            <h2>This is main layout</h2>
-            <Outlet></Outlet>
-        </div>
+      <div>
+        <header>
+          <Navbar></Navbar>
+        </header>
+        <main className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
+          <Outlet></Outlet>
+        </main>
+      </div>
     );
 };
 
