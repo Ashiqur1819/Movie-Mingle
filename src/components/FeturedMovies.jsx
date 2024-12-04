@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Movie from "./Movie";
+import { Link } from "react-router-dom";
 
 
 const FeturedMovies = () => {
@@ -28,9 +29,14 @@ const FeturedMovies = () => {
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            {
-                movies.map(movie => <Movie movie={movie} key={movie._id}></Movie>)
-            }
+          {movies.slice(0, 6).map((movie) => (
+            <Movie movie={movie} key={movie._id}></Movie>
+          ))}
+        </div>
+        <div className="flex items-center justify-center mt-12">
+          <button className="bg-[#9b0008] px-6 py-2 rounded-md text-white font-semibold text-lg">
+            <Link to="/all_movies">See All Movies</Link>
+          </button>
         </div>
       </div>
     );
