@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Movie = ({movie}) => {
-    const { poster, title, genre, year, duration, rating } = movie
+    const {_id, poster, title, genre, year, duration, rating } = movie
     return (
       <div className="border border-gray-600 p-5 rounded-md bg-[#14161aa9]">
         <figure>
@@ -11,7 +12,7 @@ const Movie = ({movie}) => {
             alt=""
           />
         </figure>
-        <div className='space-y-2 mt-6'>
+        <div className="space-y-2 mt-6">
           <h2 className="text-2xl md:text-3xl font-semibold text-[#E50914]">
             {title}
           </h2>
@@ -24,7 +25,9 @@ const Movie = ({movie}) => {
             {duration} minutes
           </p>
           <p className="text-gray-300">
-            <span className="text-lg font-semibold text-white">Releasing Year: </span>
+            <span className="text-lg font-semibold text-white">
+              Releasing Year:{" "}
+            </span>
             {year}
           </p>
           <p className="text-gray-300">
@@ -33,7 +36,7 @@ const Movie = ({movie}) => {
           </p>
         </div>
         <button className="bg-[#c78201] w-full px-6 py-2 rounded-md text-white font-semibold text-lg mt-6">
-          See Details
+          <Link to={`/movie_details/${_id}`}>See Details</Link>
         </button>
       </div>
     );
