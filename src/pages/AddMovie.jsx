@@ -35,7 +35,7 @@ const AddMovie = () => {
     }
 
     if (!rating) {
-      return toast.error("dfdf");
+      return toast.error("Rating is required.");
     }
     
 

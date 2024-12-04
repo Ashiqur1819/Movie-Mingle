@@ -1,10 +1,26 @@
-import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 
 const MovieDetails = () => {
 
     const movie = useLoaderData()
-   const { poster, title, genre, year, duration, rating, summary } = movie;
+   const {_id, poster, title, genre, year, duration, rating, summary } = movie;
+   const [movies, setMovies] = useState([])
+   const navigate = useNavigate()
+
+   const handleDeleteMovie = _id => {
+        fetch(`http://localhost:3000/movies/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // data.deletedCount > 0
+            const remainingMovies = movies.filter((movie) => movie._id !== _id);
+            setMovies(remainingMovies);
+            navigate("/all_movies")
+          });
+   }
 
     return (
       <div className="max-w-5xl mx-auto border grid md:grid-cols-2 items-center gap-12 mt-12 mb-12 p-12 rounded-md">
@@ -51,7 +67,7 @@ const MovieDetails = () => {
             <button className="bg-[#c78201] w-full px-6 py-2 rounded-md text-white font-semibold text-lg">
               Add To Favourite
             </button>
-            <button className="bg-[#E50914] w-full px-6 py-2 rounded-md text-white font-semibold text-lg ">
+            <button onClick={() => {handleDeleteMovie(_id)}} className="bg-[#E50914] w-full px-6 py-2 rounded-md text-white font-semibold text-lg ">
               Delete Movie
             </button>
           </div>
