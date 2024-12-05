@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
   import { toast, ToastContainer} from "react-toastify";
   import "react-toastify/dist/ReactToastify.css";
 import { createContext, useState } from "react";
+import Footer from "../components/Footer";
 
 
  export const FavoriteContext = createContext()
@@ -58,6 +59,9 @@ const MainLayout = () => {
           <main>
             <Outlet></Outlet>
           </main>
+          <footer>
+            <Footer></Footer>
+          </footer>
           <ToastContainer></ToastContainer>
         </div>
       </FavoriteContext.Provider>
