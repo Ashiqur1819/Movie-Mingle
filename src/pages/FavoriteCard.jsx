@@ -3,6 +3,7 @@ import { FaTrash } from 'react-icons/fa';
 
 const FavoriteCard = ({movie, index}) => {
     const { poster, title, genre, year, duration, rating } = movie;
+
     return (
       <div className="p-6 border mb-6 rounded-md">
         <div className="flex items-center justify-around">

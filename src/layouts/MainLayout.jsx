@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
   import "react-toastify/dist/ReactToastify.css";
 import { createContext, useState } from "react";
 
+
  export const FavoriteContext = createContext()
 
 const MainLayout = () => {
@@ -11,14 +12,30 @@ const MainLayout = () => {
   const [movies, setMovies] = useState([]);
 
   const handleAddToFavourite = (_id) => {
-    console.log(_id)
-    const favoriteMovie = [...loadedMovies].find((movie) => movie._id === _id); ;
-    console.log(favoriteMovie);
+    const favoriteMovie = [...loadedMovies].find((movie) => movie._id === _id);
 
       if(!movies.includes(favoriteMovie)){
         const updateFavoriteMovies = [...movies, favoriteMovie];
         setMovies(updateFavoriteMovies);
-        return toast.success(`${favoriteMovie.title} successfully added to my favourite list!`);
+
+        // Send favorite movie data client side to server side
+        fetch("http://localhost:3000/favourites", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(favoriteMovie),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if(data.acknowledged){
+              
+        return toast.success(
+          `${favoriteMovie.title} successfully added to my favourite list!`
+        );
+            }
+          });
       }
       else{
         return toast.error(`${favoriteMovie.title} Already added!`)

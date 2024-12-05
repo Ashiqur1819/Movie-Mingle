@@ -8,8 +8,6 @@ const MovieDetails = () => {
     const movie = useLoaderData()
    const {_id, poster, title, genre, year, duration, rating, summary } = movie;
    const {movies, setMovies, handleAddToFavourite} = useContext(FavoriteContext)
-
-//    const [movies, setMovies] = useState([])
    const navigate = useNavigate()
 
    const handleDeleteMovie = _id => {
