@@ -9,7 +9,6 @@ import { createContext, useState } from "react";
 const MainLayout = () => {
   const loadedMovies = useLoaderData()
   const [movies, setMovies] = useState([]);
-  console.log(movies)
 
   const handleAddToFavourite = (_id) => {
     console.log(_id)

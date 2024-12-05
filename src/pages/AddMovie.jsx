@@ -2,12 +2,34 @@ import { toast } from "react-toastify";
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Rating } from "react-simple-star-rating";
+import Select from "react-select";
+import Swal from "sweetalert2";
 
 const AddMovie = () => {
 
  const [startDate, setStartDate] = useState(new Date());
- const [rating, setRating] = useState(0);
+ const [selectedOption, setSelectedOption] = useState(null)
+
+ const handleChange = option => {
+  setSelectedOption(option)
+ }
+
+ const movieOptions = [
+   { value: "action", label: "Action" },
+   { value: "drama", label: "Drama" },
+   { value: "comedy", label: "Comedy" },
+   { value: "thriller", label: "Thriller" },
+   { value: "adventure", label: "Adventure" },
+ ];
+
+ const customStyles = {
+   control: (provided) => ({
+     ...provided,
+     backgroundColor: "#1D232A",
+     border: "none",
+     padding: "5px"
+   }),
+ };
 
   const handleAddMovie = e => {
     e.preventDefault()
@@ -22,22 +44,31 @@ const AddMovie = () => {
        return toast.error("Title must be at least 2 characters.");
     }
 
-    const genre = form.genre.value;
+    const genre = [];
+
+    {
+    const label =   selectedOption.map(option => option.label)
+    genre.push(label)
+    }
+
+
+      const duration = form.duration.value;
+      if (duration <= 60) {
+        return toast.error("Duration must be greater than 60 minutes.");
+      }
+
 
     if(!startDate){
       return toast.error("Release year is required.");
     }
     const year = startDate.getFullYear()
 
-    const duration = form.duration.value;
-    if(duration <= 60){
-      return toast.error("Duration must be greater than 60 minutes.");
-    }
-
-    if (!rating) {
-      return toast.error("Rating is required.");
-    }
     
+    const rating = form.rating.value;
+     if (!rating || rating > 10) {
+       return toast.error("Please provide a rating between 1 and 10.");
+     }
+
 
     const summary = form.summary.value;
     if(summary.length < 10){
@@ -58,24 +89,29 @@ const AddMovie = () => {
       .then((res) => res.json())
       .then((data) => {
         // data.acknowledged
+        console.log(data)
+        if(data.acknowledged){
+          Swal.fire({
+            title: `${title} Successfully Added!`,
+            imageUrl: poster,
+            imageWidth: 200,
+            imageAlt: "Custom image",
+          });
+        }
         form.reset();
-        setRating(null)
+        // setRating(null)
       });
 
 
   
   }
 
-  const handleRating = (rate) => {
-    setRating(rate);
-  };
-
 
 
   return (
     <div className="bg-[#001D20]">
       <div className="max-w-3xl mx-auto mt-6 bg-[#1D232A] p-12 rounded-md">
-        <h2 className="text-center text-4xl font-bold text-[#db9512] font-Rancho">
+        <h2 className="text-center text-4xl font-bold  text-amber-500 font-Rancho">
           Add New Movie
         </h2>
         <p className="text-center text-base text-gray-400 mt-3">
@@ -98,7 +134,7 @@ const AddMovie = () => {
               type="text"
               name="poster"
               placeholder="Poster"
-              className="input input-bordered text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
+              className="input input-bordered rounded-none text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
             />
           </div>
           <div className="form-control">
@@ -111,7 +147,7 @@ const AddMovie = () => {
               type="text"
               name="title"
               placeholder="Title"
-              className="input input-bordered text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
+              className="input input-bordered rounded-none text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
             />
           </div>
           <div className="form-control">
@@ -120,18 +156,17 @@ const AddMovie = () => {
                 Genre:
               </span>
             </label>
-            <select
-              name="genre"
-              id=""
-              className="input input-bordered border border-gray-500 bg-[#1D232A] focus:border-gray-300 text-white"
-            >
-              <option value="Action" >Choose Genre</option>
-              <option value="Action">Action</option>
-              <option value="Drama">Drama</option>
-              <option value="Thriller">Thriller</option>
-              <option value="Adventure">Adventure</option>
-              <option value="Crime">Crime</option>
-            </select>
+
+            <span className=" input-bordered rounded-none border border-gray-500 bg-[#1D232A] focus:border-gray-300 basic-multi-select">
+              <Select
+                onChange={handleChange}
+                isMulti
+                name="colors"
+                options={movieOptions}
+                classNamePrefix="Select Movie Genre"
+                styles={customStyles}
+              />
+            </span>
           </div>
           <div className="form-control">
             <label className="label">
@@ -143,7 +178,7 @@ const AddMovie = () => {
               type="number"
               name="duration"
               placeholder="Duration"
-              className="input input-bordered text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
+              className="input input-bordered rounded-none text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
             />
           </div>
           <div className="form-control">
@@ -153,7 +188,7 @@ const AddMovie = () => {
               </span>
             </label>
             <DatePicker
-              className="input input-bordered text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300 w-full"
+              className="input input-bordered rounded-none text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300 w-full"
               selected={startDate}
               onChange={(date) => setStartDate(date)}
               showYearPicker
@@ -166,7 +201,13 @@ const AddMovie = () => {
                 Rating:
               </span>
             </label>
-            <Rating onClick={handleRating} ratingValue={rating}></Rating>
+            <input
+              type="number"
+              name="rating"
+              placeholder="Rating"
+              className="input input-bordered rounded-none text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
+            />
+            {/* <Rating onClick={handleRating} ratingValue={rating}></Rating> */}
           </div>
           <div className="form-control col-span-2">
             <label className="label">
@@ -177,12 +218,12 @@ const AddMovie = () => {
             <textarea
               placeholder="Summary"
               name="summary"
-              className="textarea textarea-bordered textarea-md text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300 w-full"
+              className="textarea textarea-bordered rounded-none textarea-md text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300 w-full"
             ></textarea>
             {/* lg */}
           </div>
           <input
-            className="mt-3 bg-[#db9512] btn text-white text-xl font-Rancho font-medium hover:bg-[#E50914] col-span-2"
+            className="mt-3 bg-[#db9512] btn rounded-none text-white text-xl font-Rancho font-medium hover:bg-[#E50914] col-span-2"
             type="submit"
             value="Add Movie"
           />

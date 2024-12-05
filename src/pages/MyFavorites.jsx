@@ -5,7 +5,6 @@ import FavoriteCard from "./FavoriteCard";
 
 const MyFavorites = () => {
     const {movies} = useContext(FavoriteContext)
-    console.log(movies)
     return (
       <div className="px-4 md:px-8 lg:px-12">
         <h2>My favorites</h2>
