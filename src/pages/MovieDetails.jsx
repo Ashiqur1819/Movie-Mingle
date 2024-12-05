@@ -34,7 +34,7 @@ const MovieDetails = () => {
         </div>
         <div>
           <div className="space-y-2">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-[#E50914]">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-red-600">
               {title}
             </h2>
             <p className="text-gray-300">
@@ -68,7 +68,7 @@ const MovieDetails = () => {
             <button onClick={() => handleAddToFavourite(_id)} className="bg-[#c78201] w-full px-6 py-2 rounded-md text-white font-semibold text-lg">
               Add To Favourite
             </button>
-            <button onClick={() => {handleDeleteMovie(_id)}} className="bg-[#E50914] w-full px-6 py-2 rounded-md text-white font-semibold text-lg ">
+            <button onClick={() => {handleDeleteMovie(_id)}} className="bg-red-600 w-full px-6 py-2 rounded-md text-white font-semibold text-lg ">
               Delete Movie
             </button>
           </div>

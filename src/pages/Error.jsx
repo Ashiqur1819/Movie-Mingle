@@ -6,7 +6,7 @@ const Error = () => {
       <div className="max-w-7xl mx-auto">
         <img src={errorImg} className="mx-auto" alt="" />
         <div className="flex items-center justify-center">
-          <button className="bg-red-700  px-6 py-2 rounded-md text-white font-semibold text-lg">
+          <button className="bg-red-600  px-6 py-2 rounded-md text-white font-semibold text-lg">
             <Link to="/">Back To Home</Link>
           </button>
         </div>

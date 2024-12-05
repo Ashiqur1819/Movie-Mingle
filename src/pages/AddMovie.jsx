@@ -223,7 +223,7 @@ const AddMovie = () => {
             {/* lg */}
           </div>
           <input
-            className="mt-3 bg-[#db9512] btn rounded-none text-white text-xl font-Rancho font-medium hover:bg-[#E50914] col-span-2"
+            className="mt-3 bg-[#db9512] btn rounded-none text-white text-xl font-Rancho font-medium hover:bg-red-600 col-span-2"
             type="submit"
             value="Add Movie"
           />

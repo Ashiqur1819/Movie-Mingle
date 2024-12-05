@@ -13,17 +13,21 @@ const Slider = () => {
             src={s1}
             className="w-full h-[450px] md:h-[600px] object-cover"
           />
-          <div className="absolute  w-full h-[450px] md:h-[600px">
-            <div className="bg-[#001d20e0] w-[550px] shadow-lg rounded-lg border border-[#db9512] p-12 relative top-32 left-24 space-y-12">
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#E50914] max-w-3xl lg:max-w-4xl">
-                Breathtaking Views, <br />
-                <span className="text-[#db9512]">Unforgettable Journeys </span>
+          <div
+            style={{ backgroundColor: "rgba(0, 0, 0, .3)" }}
+            className="absolute  w-full h-[450px] md:h-[600px"
+          >
+            <div className="bg-[#001d20e0] w-[550px] shadow-lg rounded-lg border border-[#db9512] p-12 relative top-32 left-24 space-y-6">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-red-600 max-w-3xl lg:max-w-4xl">
+                Dive Into the World of Movies With{" "}
+                <span className="text-[#db9512]">MovieMingle!</span>
               </h2>
-              <p className=" text-white max-w-3xl md:max-w-xl lg:max-w-3xl">
-                Experience awe-inspiring landscapes and life-changing adventures
-                that create lasting memories. From towering mountains to serene
-                beaches and vibrant cityscapes, every journey invites you to
-                discover the world in its most magnificent form.
+              <p className=" text-gray-300 max-w-3xl md:max-w-xl lg:max-w-3xl">
+                Immerse yourself in a community where every film finds its
+                audience. Explore a vast collection of movies, share your
+                thoughts, and connect with fellow movie buffs. Whether you're
+                into blockbusters, indie gems, or timeless classics, MovieMingle
+                is your ultimate destination to celebrate the art of cinema!
               </p>
             </div>
           </div>
@@ -48,16 +52,17 @@ const Slider = () => {
             style={{ backgroundColor: "rgba(0, 0, 0, .6)" }}
             className="absolute  w-full h-[450px] md:h-[600px]"
           >
-            <div className="bg-[#001d20e0] w-[550px] shadow-lg rounded-lg border border-[#db9512] p-12 relative top-24 left-24 space-y-12">
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#E50914]">
-                Breathtaking Views, <br />
-                <span className="text-[#db9512]">Unforgettable Journeys</span>
+            <div className="bg-[#001d20e0] w-[550px] shadow-lg rounded-lg border border-[#db9512] p-12 relative top-24 left-24 space-y-6">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-red-600">
+                From Blockbusters to Classics –{" "}
+                <span className="text-[#db9512]">Find Your Next Favorite!</span>
               </h2>
-              <p className=" text-white max-w-3xl md:max-w-xl lg:max-w-3xl">
-                Experience awe-inspiring landscapes and life-changing adventures
-                that create lasting memories. From towering mountains to serene
-                beaches and vibrant cityscapes, every journey invites you to
-                discover the world in its most magnificent form.
+              <p className=" text-gray-300 max-w-3xl md:max-w-xl lg:max-w-3xl">
+                MovieMingle is your guide to cinematic discovery. Explore the
+                latest blockbusters, timeless classics, and hidden gems. Rate,
+                review, and share your favorites while connecting with a
+                passionate community of movie enthusiasts. Your next great movie
+                experience starts here!
               </p>
             </div>
           </div>
@@ -83,16 +88,17 @@ const Slider = () => {
             style={{ backgroundColor: "rgba(0, 0, 0, .5)" }}
             className="absolute  w-full h-[450px] md:h-[600px]"
           >
-            <div className="bg-[#001d2080] w-[550px] shadow-lg rounded-lg border border-[#db9512] p-12 relative top-32 left-24  space-y-12">
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#E50914]">
-                Breathtaking Views, <br />
-                <span className="text-[#db9512]">Unforgettable Journeys</span>
+            <div className="bg-[#001d2080] w-[550px] shadow-lg rounded-lg border border-[#db9512] p-12 relative top-32 left-24  space-y-6">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-red-600">
+                Rate, Review, and Rediscover{" "}
+                <span className="text-[#db9512]">Cinema with Us! </span>
               </h2>
-              <p className=" text-white max-w-3xl md:max-w-xl lg:max-w-3xl">
-                Experience awe-inspiring landscapes and life-changing adventures
-                that create lasting memories. From towering mountains to serene
-                beaches and vibrant cityscapes, every journey invites you to
-                discover the world in its most magnificent form.
+              <p className=" text-gray-300 max-w-3xl md:max-w-xl lg:max-w-3xl">
+                MovieMingle is the ultimate destination for movie lovers to
+                explore new films, share their reviews, and connect with fellow
+                cinephiles. Discover hidden gems, rate your favorites, and join
+                a community that celebrates the magic of storytelling on the big
+                screen!
               </p>
             </div>
           </div>

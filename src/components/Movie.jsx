@@ -13,7 +13,7 @@ const Movie = ({movie}) => {
           />
         </figure>
         <div className="space-y-2 mt-6">
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#E50914]">
+          <h2 className="text-2xl md:text-3xl font-semibold text-red-600">
             {title}
           </h2>
           <p className="text-gray-300">

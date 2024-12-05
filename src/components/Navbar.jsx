@@ -47,7 +47,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="text-lg text-[#E50914] md:text-3xl font-bold hidden md:inline-block">
+        <a className="text-lg text-red-600 md:text-3xl font-bold hidden md:inline-block">
           Movie<span className="text-[#db9512]">Mingle</span>
         </a>
         {/* <img src={logo} className="w-16 md:hidden" alt="" /> */}
