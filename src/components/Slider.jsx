@@ -18,7 +18,7 @@ const Slider = () => {
             className="absolute  w-full h-[450px] md:h-[600px"
           >
             <div className="bg-[#001d20e0] w-[550px] shadow-lg rounded-lg border border-[#db9512] p-12 relative top-32 left-24 space-y-6">
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-red-600 max-w-3xl lg:max-w-4xl">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-green-500 max-w-3xl lg:max-w-4xl">
                 Dive Into the World of Movies With{" "}
                 <span className="text-yellow-500">MovieMingle!</span>
               </h2>
@@ -53,9 +53,11 @@ const Slider = () => {
             className="absolute  w-full h-[450px] md:h-[600px]"
           >
             <div className="bg-[#001d20e0] w-[550px] shadow-lg rounded-lg border border-[#db9512] p-12 relative top-24 left-24 space-y-6">
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-red-600">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-green-500">
                 From Blockbusters to Classics –{" "}
-                <span className="text-yellow-500">Find Your Next Favorite!</span>
+                <span className="text-yellow-500">
+                  Find Your Next Favorite!
+                </span>
               </h2>
               <p className=" text-gray-300 max-w-3xl md:max-w-xl lg:max-w-3xl">
                 MovieMingle is your guide to cinematic discovery. Explore the
@@ -89,7 +91,7 @@ const Slider = () => {
             className="absolute  w-full h-[450px] md:h-[600px]"
           >
             <div className="bg-[#001d2080] w-[550px] shadow-lg rounded-lg border border-[#db9512] p-12 relative top-32 left-24  space-y-6">
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-red-600">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-green-500">
                 Rate, Review, and Rediscover{" "}
                 <span className="text-yellow-500">Cinema with Us! </span>
               </h2>

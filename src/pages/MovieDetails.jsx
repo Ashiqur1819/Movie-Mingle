@@ -72,7 +72,7 @@ const MovieDetails = () => {
             <div className="flex items-center gap-6 mt-6">
               <button
                 onClick={() => handleAddToFavourite(_id)}
-                className="bg-yellow-600 w-full px-6 py-2 rounded-md text-white font-semibold text-lg"
+                className="bg-yellow-600 w-full px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-amber-500"
               >
                 Add To Favourite
               </button>
@@ -80,7 +80,7 @@ const MovieDetails = () => {
                 onClick={() => {
                   handleDeleteMovie(_id);
                 }}
-                className="bg-red-600 w-full px-6 py-2 rounded-md text-white font-semibold text-lg "
+                className="bg-red-700 w-full px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-red-600"
               >
                 Delete Movie
               </button>
@@ -88,7 +88,7 @@ const MovieDetails = () => {
           </div>
         </div>
         <div className="flex items-center justify-center mt-12">
-          <button className="bg-red-700 px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-red-600">
+          <button className="bg-green-600 px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-green-500">
             <Link to="/all_movies">See All Movies</Link>
           </button>
         </div>

@@ -36,7 +36,7 @@ const FeturedMovies = () => {
           ))}
         </div>
         <div className="flex items-center justify-center mt-12">
-          <button className="bg-red-700 px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-red-600">
+          <button className="bg-green-600 px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-green-500">
             <Link to="/all_movies">See All Movies</Link>
           </button>
         </div>

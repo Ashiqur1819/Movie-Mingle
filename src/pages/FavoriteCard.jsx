@@ -29,14 +29,14 @@ const FavoriteCard = ({ movie, movies, setMovies }) => {
         />
       </figure>
       <div className="space-y-2 mt-6">
-        <h2 className="text-2xl md:text-3xl font-semibold text-yellow-500">
+        <h2 className="text-2xl md:text-3xl font-bold text-green-500">
           {title}
         </h2>
         <p className="text-gray-300 flex items-center gap-2">
           <span className="text-lg font-semibold text-white">Genre: </span>|
-          {/* {genre.map((singleGenre) => (
-            <p>{singleGenre} |</p>
-          ))} */}
+          {genre.map((singleGenre, index) => (
+            <p key={index}>{singleGenre} |</p>
+          ))}
         </p>
         <p className="text-gray-300">
           <span className="text-lg font-semibold text-white">Duration: </span>

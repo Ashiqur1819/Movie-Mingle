@@ -6,7 +6,9 @@ const Footer = () => {
       <footer className="bg-[#000b1b] mt-24">
         <div className="text-white max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-24 px-4 md:px-8 lg:px-12 p-12">
           <div>
-            <h2 className="text-5xl font-bold text-red-600">MovieMingle</h2>
+            <h2 className="text-5xl font-bold text-red-600">
+              Movie<span className="text-yellow-500">Mingle</span>
+            </h2>
             <p className="mt-3 text-gray-400">
               It is a platform where movie enthusiasts connect, discover, and
               share their passion for films. Explore trending movies, read and
@@ -20,11 +22,11 @@ const Footer = () => {
               Contact Us
             </h3>
             <p className="text-gray-400">
-              <span className="text-red-600 font-semibold">Email: </span>
+              <span className="text-green-600 font-semibold">Email: </span>
               ashiqurrahman1819.com
             </p>
             <p className="text-gray-400">
-              <span className="text-red-600 font-semibold">Phone: </span>
+              <span className="text-green-600 font-semibold">Phone: </span>
               +8801931536316
             </p>
             <div className="flex items-center gap-6 mt-6">
@@ -59,10 +61,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-            <p className="mt-3 text-gray-400 text-center">
-              &copy; {new Date().getFullYear()} MovieMingle. All rights
-              reserved.
-            </p>
+        <p className="mt-3 text-gray-400 text-center">
+          &copy; {new Date().getFullYear()} MovieMingle. All rights reserved.
+        </p>
       </footer>
     );
 };
