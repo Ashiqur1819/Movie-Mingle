@@ -1,8 +1,12 @@
-import React from 'react';
+
+
 import { Link } from 'react-router-dom';
+import { Rating } from "react-simple-star-rating";
 
 const Movie = ({movie}) => {
     const {_id, poster, title, genre, year, duration, rating } = movie
+    
+
     return (
       <div className="border border-gray-600 p-5 rounded-md bg-[#14161aa9]">
         <figure>
@@ -16,9 +20,11 @@ const Movie = ({movie}) => {
           <h2 className="text-2xl md:text-3xl font-semibold text-red-600">
             {title}
           </h2>
-          <p className="text-gray-300">
-            <span className="text-lg font-semibold text-white">Genre: </span>
-            {genre}
+          <p className="text-gray-300 flex items-center gap-2">
+            <span className="text-lg font-semibold text-white">Genre: </span>|
+            {genre.map((singleGenre) => (
+              <p>{singleGenre} |</p>
+            ))}
           </p>
           <p className="text-gray-300">
             <span className="text-lg font-semibold text-white">Duration: </span>
@@ -30,9 +36,13 @@ const Movie = ({movie}) => {
             </span>
             {year}
           </p>
-          <p className="text-gray-300">
+          <p className="text-gray-300 flex items-center gap-2">
             <span className="text-lg font-semibold text-white">Rating: </span>
-            {rating}
+            <Rating
+            size={30}
+            initialValue={rating}
+              readonly
+            />
           </p>
         </div>
         <button className="bg-[#c78201] w-full px-6 py-2 rounded-md text-white font-semibold text-lg mt-6">

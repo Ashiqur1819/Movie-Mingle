@@ -15,11 +15,13 @@ const FeturedMovies = () => {
         })
     }, [])
 
+    const sortedMovies = movies.sort((a, b) => b.rating - a.rating)
+
 
     return (
       <div>
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-6xl text-[#db9512] font-semibold">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl text-yellow-600 font-semibold">
             Featured Movies
           </h2>
           <p className="max-w-3xl mx-auto text-gray-400 mt-3">
@@ -29,12 +31,12 @@ const FeturedMovies = () => {
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-          {movies.slice(0, 6).map((movie) => (
+          {sortedMovies.slice(0, 6).map((movie) => (
             <Movie movie={movie} key={movie._id}></Movie>
           ))}
         </div>
         <div className="flex items-center justify-center mt-12">
-          <button className="bg-[#9b0008] px-6 py-2 rounded-md text-white font-semibold text-lg">
+          <button className="bg-red-700 px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-red-600">
             <Link to="/all_movies">See All Movies</Link>
           </button>
         </div>

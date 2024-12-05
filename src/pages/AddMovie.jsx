@@ -44,13 +44,9 @@ const AddMovie = () => {
        return toast.error("Title must be at least 2 characters.");
     }
 
-    const genre = [];
 
-    {
-    const label =   selectedOption.map(option => option.label)
-    genre.push(label)
-    }
 
+    const genre = selectedOption.map((option) => option.label);
 
       const duration = form.duration.value;
       if (duration <= 60) {
@@ -65,8 +61,8 @@ const AddMovie = () => {
 
     
     const rating = form.rating.value;
-     if (!rating || rating > 10) {
-       return toast.error("Please provide a rating between 1 and 10.");
+     if (!rating || rating > 5) {
+       return toast.error("Please provide a rating between 1 and 5.");
      }
 
 

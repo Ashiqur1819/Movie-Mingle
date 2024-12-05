@@ -5,16 +5,16 @@ const Navbar = () => {
 
   const links = (
     <div className="lg:flex items-center gap-6">
-      <li className="">
+      <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="">
+      <li>
         <NavLink to="/all_movies">All Movies</NavLink>
       </li>
-      <li className="">
+      <li>
         <NavLink to="/add_movie">Add Movie</NavLink>
       </li>
-      <li className="">
+      <li>
         <NavLink to="/my_favorites">My Favorites</NavLink>
       </li>
     </div>
@@ -48,7 +48,7 @@ const Navbar = () => {
           </ul>
         </div>
         <a className="text-lg text-red-600 md:text-3xl font-bold hidden md:inline-block">
-          Movie<span className="text-[#db9512]">Mingle</span>
+          Movie<span className="text-yellow-600">Mingle</span>
         </a>
         {/* <img src={logo} className="w-16 md:hidden" alt="" /> */}
       </div>

@@ -20,7 +20,7 @@ const Slider = () => {
             <div className="bg-[#001d20e0] w-[550px] shadow-lg rounded-lg border border-[#db9512] p-12 relative top-32 left-24 space-y-6">
               <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-red-600 max-w-3xl lg:max-w-4xl">
                 Dive Into the World of Movies With{" "}
-                <span className="text-[#db9512]">MovieMingle!</span>
+                <span className="text-yellow-600">MovieMingle!</span>
               </h2>
               <p className=" text-gray-300 max-w-3xl md:max-w-xl lg:max-w-3xl">
                 Immerse yourself in a community where every film finds its
@@ -55,7 +55,7 @@ const Slider = () => {
             <div className="bg-[#001d20e0] w-[550px] shadow-lg rounded-lg border border-[#db9512] p-12 relative top-24 left-24 space-y-6">
               <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-red-600">
                 From Blockbusters to Classics –{" "}
-                <span className="text-[#db9512]">Find Your Next Favorite!</span>
+                <span className="text-yellow-600">Find Your Next Favorite!</span>
               </h2>
               <p className=" text-gray-300 max-w-3xl md:max-w-xl lg:max-w-3xl">
                 MovieMingle is your guide to cinematic discovery. Explore the
@@ -91,7 +91,7 @@ const Slider = () => {
             <div className="bg-[#001d2080] w-[550px] shadow-lg rounded-lg border border-[#db9512] p-12 relative top-32 left-24  space-y-6">
               <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-red-600">
                 Rate, Review, and Rediscover{" "}
-                <span className="text-[#db9512]">Cinema with Us! </span>
+                <span className="text-yellow-600">Cinema with Us! </span>
               </h2>
               <p className=" text-gray-300 max-w-3xl md:max-w-xl lg:max-w-3xl">
                 MovieMingle is the ultimate destination for movie lovers to
