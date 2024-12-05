@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  background-color: #001D20;
-  height: 100vh;
-}
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

@@ -1,13 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import {useEffect, useState } from "react";
 import FavoriteCard from "./FavoriteCard";
-// import { FavoriteContext } from "../layouts/MainLayout";
-// import { useLoaderData } from "react-router-dom";
+
 
 
 const MyFavorites = () => {
-    // const {movies} = useContext(FavoriteContext)
-    // const favoriteMovies = useLoaderData()
-    // console.log(favoriteMovies)
 
     const [movies, setMovies] = useState([]);
 
@@ -21,17 +17,14 @@ const MyFavorites = () => {
 
     return (
       <div className="px-4 md:px-8 lg:px-12">
-        <h2>My favorites</h2>
         <div>
-          <div className=" text-white">
-            {movies.map((movie, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+            {movies.map((movie) => (
               <FavoriteCard
                 movie={movie}
                 key={movie._id}
-                index={index}
                 movies={movies}
                 setMovies={setMovies}
-                // favoriteMovies={favoriteMovies}
               ></FavoriteCard>
             ))}
           </div>

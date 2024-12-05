@@ -29,7 +29,6 @@ const MainLayout = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if(data.acknowledged){
               
         return toast.success(

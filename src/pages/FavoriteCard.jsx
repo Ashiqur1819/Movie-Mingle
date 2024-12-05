@@ -1,8 +1,10 @@
 // import React, { useContext } from 'react';
 import { FaTrash } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { Rating } from 'react-simple-star-rating';
 
 
-const FavoriteCard = ({ movie, index, movies, setMovies }) => {
+const FavoriteCard = ({ movie, movies, setMovies }) => {
   const { _id, poster, title, genre, year, duration, rating } = movie;
   // const { movies, setMovies } = useContext(FavoriteContext);
 
@@ -12,62 +14,51 @@ const FavoriteCard = ({ movie, index, movies, setMovies }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         const remainingMovies = movies.filter((movie) => movie._id !== _id);
         setMovies(remainingMovies);
       });
   };
 
   return (
-    <div className="p-6 border mb-6 rounded-md">
-      <div className="flex items-center justify-around">
-        <p>{index + 1}</p>
-        <figure>
-          <img
-            src={poster}
-            className="w-24 h-24 object-cover rounded-full"
-            alt=""
-          />
-        </figure>
-        <div className="text-center">
-          <p>
-            <strong>Name</strong>
-          </p>
-          <p>{title}</p>
-        </div>
-        <div className="text-center">
-          <p>
-            <strong>Genre</strong>
-          </p>
-          <p>{genre}</p>
-        </div>
-        <div className="text-center">
-          <p>
-            <strong>Duration</strong>
-          </p>
-          <p>{duration} minutes</p>
-        </div>
-        <div className="text-center">
-          <p>
-            <strong>Release Year</strong>
-          </p>
-          <p>{year}</p>
-        </div>
-        <div className="text-center">
-          <p>
-            <strong>Rating</strong>
-          </p>
-          <p>{rating}</p>
-        </div>
-
-        <button
-          onClick={() => handleDeleteFavourite(_id)}
-          className="flex items-center gap-2 font-semibold text-lg text-red-600 px-5 py-2 bg-white rounded-md hover:bg-red-600 hover:text-white"
-        >
-          Delete
-          <FaTrash />
-        </button>
+    <div className="border border-gray-600 p-5 rounded-md bg-[#081718a9]">
+      <figure>
+        <img
+          src={poster}
+          className="h-52 w-full object-cover rounded-md"
+          alt=""
+        />
+      </figure>
+      <div className="space-y-2 mt-6">
+        <h2 className="text-2xl md:text-3xl font-semibold text-yellow-500">
+          {title}
+        </h2>
+        <p className="text-gray-300 flex items-center gap-2">
+          <span className="text-lg font-semibold text-white">Genre: </span>|
+          {/* {genre.map((singleGenre) => (
+            <p>{singleGenre} |</p>
+          ))} */}
+        </p>
+        <p className="text-gray-300">
+          <span className="text-lg font-semibold text-white">Duration: </span>
+          {duration} minutes
+        </p>
+        <p className="text-gray-300">
+          <span className="text-lg font-semibold text-white">
+            Releasing Year:{" "}
+          </span>
+          {year}
+        </p>
+        <p className="text-gray-300 flex items-center gap-2">
+          <span className="text-lg font-semibold text-white">Rating: </span>
+          <Rating size={30} initialValue={rating} readonly />
+        </p>
       </div>
+      <button
+        onClick={() => handleDeleteFavourite(_id)}
+        className="bg-red-700 w-full px-6 py-2 rounded-md text-white font-semibold text-lg mt-6 hover:bg-red-600"
+      >
+        Delete
+      </button>
     </div>
   );
 };

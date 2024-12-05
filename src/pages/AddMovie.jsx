@@ -84,8 +84,6 @@ const AddMovie = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // data.acknowledged
-        console.log(data)
         if(data.acknowledged){
           Swal.fire({
             title: `${title} Successfully Added!`,

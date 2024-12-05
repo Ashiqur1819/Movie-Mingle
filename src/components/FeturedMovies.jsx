@@ -21,7 +21,7 @@ const FeturedMovies = () => {
     return (
       <div>
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-6xl text-yellow-600 font-semibold">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl text-yellow-500 font-bold">
             Featured Movies
           </h2>
           <p className="max-w-3xl mx-auto text-gray-400 mt-3">

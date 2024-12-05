@@ -16,7 +16,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex items-end flex-col justify-end">
-            <h3 className="text-3xl font-bold text-yellow-600 mb-3">
+            <h3 className="text-3xl font-bold text-yellow-500 mb-3">
               Contact Us
             </h3>
             <p className="text-gray-400">

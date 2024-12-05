@@ -48,7 +48,7 @@ const Navbar = () => {
           </ul>
         </div>
         <a className="text-lg text-red-600 md:text-3xl font-bold hidden md:inline-block">
-          Movie<span className="text-yellow-600">Mingle</span>
+          Movie<span className="text-yellow-500">Mingle</span>
         </a>
         {/* <img src={logo} className="w-16 md:hidden" alt="" /> */}
       </div>
@@ -58,10 +58,10 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-6">
-        <button className="btn text-base  bg-[#db9512]">
+        <button className="bg-green-600 px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-green-500">
           <NavLink to="/login">Log In</NavLink>
         </button>
-        <button className="btn text-base">
+        <button className="bg-yellow-600 px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-amber-500">
           <NavLink to="/register">Register</NavLink>
         </button>
       </div>

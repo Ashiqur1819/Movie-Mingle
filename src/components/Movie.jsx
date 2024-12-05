@@ -45,7 +45,7 @@ const Movie = ({movie}) => {
             />
           </p>
         </div>
-        <button className="bg-[#c78201] w-full px-6 py-2 rounded-md text-white font-semibold text-lg mt-6">
+        <button className="bg-yellow-600 w-full px-6 py-2 rounded-md text-white font-semibold text-lg mt-6 hover:bg-amber-500">
           <Link to={`/movie_details/${_id}`}>See Details</Link>
         </button>
       </div>
