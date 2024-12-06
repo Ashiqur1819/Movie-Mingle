@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
       const [showPassword, setShowPassword] = useState(false);
     return (
-      <div className="card w-full mx-auto max-w-md rounded-none shrink-0 shadow-2xl mt-12  bg-[#1D232A]">
+      <div className="card w-full mx-auto max-w-lg rounded-none shrink-0 shadow-2xl mt-12  bg-[#1D232A]">
         <h2 className="text-3xl font-bold text-center mt-6 text-yellow-500">
           Log In Your Account
         </h2>
@@ -73,7 +73,7 @@ const Login = () => {
             </div>
           </button>
         </div>
-        <p className="text-center mt-3 mb-6 text-gray-300">Haven't any account? <Link to="/signup" className="underline font-medium text-green-500">
+        <p className="text-center mt-3 mb-6 text-gray-300">Haven't any account? <Link to="/register" className="underline font-medium text-green-500">
             Register
           </Link>
         </p>

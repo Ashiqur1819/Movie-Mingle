@@ -1,12 +1,8 @@
-// import React, { useContext } from 'react';
-import { FaTrash } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import { Rating } from 'react-simple-star-rating';
 
 
 const FavoriteCard = ({ movie, movies, setMovies }) => {
   const { _id, poster, title, genre, year, duration, rating } = movie;
-  // const { movies, setMovies } = useContext(FavoriteContext);
 
   const handleDeleteFavourite = (_id) => {
     fetch(`http://localhost:3000/favourites/${_id}`, {

@@ -35,7 +35,7 @@ const MovieDetails = () => {
           </div>
           <div>
             <div className="space-y-2">
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-red-600">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-red-600">
                 {title}
               </h2>
               <p className="text-gray-300">
