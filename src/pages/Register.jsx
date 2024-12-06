@@ -57,7 +57,7 @@ const Register = () => {
             setLoading(true);
 
             // Send data from client site to server side
-            fetch("http://localhost:3000/users", {
+            fetch("https://movie-mingle-server-side.vercel.app/users", {
               method: "POST", 
               headers: {
                 "content-type" : "application/json"
@@ -66,12 +66,11 @@ const Register = () => {
             })
             .then(res => res.json())
             .then(data => {
-              console.log(data)
+              alert("fddf")
             })
           });
         })
         .catch((error) =>
-          console.log(error),
           toast.error(
             "Oops! We couldn't create your account. Please check your details and try again."
           )

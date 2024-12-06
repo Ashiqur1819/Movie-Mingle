@@ -11,7 +11,7 @@ const MovieDetails = () => {
    const navigate = useNavigate()
 
    const handleDeleteMovie = _id => {
-        fetch(`http://localhost:3000/movies/${_id}`, {
+        fetch(`https://movie-mingle-server-side.vercel.app/movies/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

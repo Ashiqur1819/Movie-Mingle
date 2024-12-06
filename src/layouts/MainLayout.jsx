@@ -20,7 +20,7 @@ const MainLayout = () => {
         setMovies(updateFavoriteMovies);
 
         // Send favorite movie data client side to server side
-        fetch("http://localhost:3000/favourites", {
+        fetch("https://movie-mingle-server-side.vercel.app/favourites", {
           method: "POST",
           headers: {
             "content-type": "application/json",

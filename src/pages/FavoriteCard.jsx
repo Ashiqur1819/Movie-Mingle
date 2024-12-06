@@ -5,7 +5,7 @@ const FavoriteCard = ({ movie, movies, setMovies }) => {
   const { _id, poster, title, genre, year, duration, rating } = movie;
 
   const handleDeleteFavourite = (_id) => {
-    fetch(`http://localhost:3000/favourites/${_id}`, {
+    fetch(`https://movie-mingle-server-side.vercel.app/favourites/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

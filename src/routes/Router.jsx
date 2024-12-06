@@ -15,7 +15,7 @@ const Router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    loader: () => fetch("http://localhost:3000/movies"),
+    loader: () => fetch("https://movie-mingle-server-side.vercel.app/movies"),
     errorElement: <Error></Error>,
     children: [
       {
@@ -25,13 +25,13 @@ const Router = createBrowserRouter([
       {
         path: "/all_movies",
         element: <AllMovies></AllMovies>,
-        loader: () => fetch("http://localhost:3000/movies"),
+        loader: () => fetch("https://movie-mingle-server-side.vercel.app/movies"),
       },
       {
         path: "/movie_details/:id",
         element: <MovieDetails></MovieDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/movies/${params.id}`),
+          fetch(`https://movie-mingle-server-side.vercel.app/movies/${params.id}`),
       },
       {
         path: "/add_movie",

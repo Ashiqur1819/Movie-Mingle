@@ -75,7 +75,7 @@ const AddMovie = () => {
     const newMovie = { poster, title, genre, year, duration, rating, summary };
     
     // Send data from client side to server side
-    fetch("http://localhost:3000/movies", {
+    fetch("https://movie-mingle-server-side.vercel.app/movies", {
       method: "POST",
       headers: {
         "content-type": "application/json",

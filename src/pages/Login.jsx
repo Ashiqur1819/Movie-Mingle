@@ -46,9 +46,8 @@ const Login = () => {
             const lastSignInTime = result.user.metadata.lastSignInTime;
 
             const loginInfo = { email, lastSignInTime };
-            console.log(loginInfo);
-            
-             fetch(`http://localhost:3000/users`, {
+
+             fetch(`https://movie-mingle-server-side.vercel.app/users`, {
                method: "PATCH",
                headers: {
                  "content-type": "application/json",
@@ -57,7 +56,7 @@ const Login = () => {
              })
                .then((res) => res.json())
                .then((data) => {
-                 console.log(data);
+                 alert("fdfd")
                });
           })
           .catch(() => {

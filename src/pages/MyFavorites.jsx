@@ -8,7 +8,7 @@ const MyFavorites = () => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-      fetch("http://localhost:3000/favourites")
+      fetch("https://movie-mingle-server-side.vercel.app/favourites")
         .then((res) => res.json())
         .then((data) => {
           setMovies(data);
