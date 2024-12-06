@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const Login = () => {
       const [showPassword, setShowPassword] = useState(false);
+          const { loginWithGoogle, setUser } = useContext(AuthContext);
 
       const handlelogin = e => {
         e.preventDefault();
@@ -31,6 +33,20 @@ const Login = () => {
         }
 
       }
+
+       const handleLoginWithGoogle = () => {
+         loginWithGoogle()
+           .then((result) => {
+             setUser(result.user);
+             toast.success(`Google login successful!`);
+           })
+           .catch((error) => {
+             toast.error(
+               " Google login failed. Please check your connection and try again."
+             );
+           });
+       };
+
     return (
       <div className="card w-full mx-auto max-w-lg rounded-none shrink-0 shadow-2xl mt-12  bg-[#1D232A]">
         <h2 className="text-3xl font-bold text-center mt-6 text-yellow-500">
@@ -92,7 +108,10 @@ const Login = () => {
           <h4 className="text-center text-lg my-2 font-medium text-white">
             Or
           </h4>
-          <button className="py-2 px-6 w-full text-lg border border-yellow-500  text-yellow-500 cursor-pointer font-medium hover:bg-amber-500 hover:text-white hover:border-white">
+          <button
+            onClick={handleLoginWithGoogle}
+            className="py-2 px-6 w-full text-lg border border-yellow-500  text-yellow-500 cursor-pointer font-medium hover:bg-amber-500 hover:text-white hover:border-white"
+          >
             <div className="flex items-center justify-center gap-3">
               <FaGoogle></FaGoogle>
               <span>Log In with Google</span>
