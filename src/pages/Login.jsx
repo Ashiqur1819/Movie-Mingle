@@ -1,16 +1,42 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 const Login = () => {
       const [showPassword, setShowPassword] = useState(false);
+
+      const handlelogin = e => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        const user = { email, password };
+
+        if (password.length < 6) {
+          toast.error("Password must be at least 6 characters long!");
+          return;
+        }
+
+        if (!/[A-Z]/.test(password)) {
+          toast.error("Password must contain at least one uppercase letter!");
+          return;
+        }
+
+        if (!/[a-z]/.test(password)) {
+          toast.error("Password must contain at least one lowercase letter!");
+          return;
+        }
+
+      }
     return (
       <div className="card w-full mx-auto max-w-lg rounded-none shrink-0 shadow-2xl mt-12  bg-[#1D232A]">
         <h2 className="text-3xl font-bold text-center mt-6 text-yellow-500">
           Log In Your Account
         </h2>
-        <form className="card-body px-8 py-0 mt-8">
+        <form onSubmit={handlelogin} className="card-body px-8 py-0 mt-8">
           <div className="form-control">
             <label className="label">
               <span className="label-text font-semibold text-base text-gray-100">
@@ -63,17 +89,19 @@ const Login = () => {
           </div>
         </form>
         <div className="px-8">
-          <h4 className="text-center text-lg my-2 font-medium text-white">Or</h4>
-          <button
-            className="py-2 px-6 w-full text-lg border border-yellow-500  text-yellow-500 cursor-pointer font-medium hover:bg-amber-500 hover:text-white hover:border-white"
-          >
+          <h4 className="text-center text-lg my-2 font-medium text-white">
+            Or
+          </h4>
+          <button className="py-2 px-6 w-full text-lg border border-yellow-500  text-yellow-500 cursor-pointer font-medium hover:bg-amber-500 hover:text-white hover:border-white">
             <div className="flex items-center justify-center gap-3">
               <FaGoogle></FaGoogle>
               <span>Log In with Google</span>
             </div>
           </button>
         </div>
-        <p className="text-center mt-3 mb-6 text-gray-300">Haven't any account? <Link to="/register" className="underline font-medium text-green-500">
+        <p className="text-center mt-3 mb-6 text-gray-300">
+          Haven't any account?{" "}
+          <Link to="/register" className="underline font-medium text-green-500">
             Register
           </Link>
         </p>
