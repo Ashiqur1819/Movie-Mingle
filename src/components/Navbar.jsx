@@ -5,8 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
 
-  const {user} = useContext(AuthContext)
-  console.log(user)
+  const { user, logOut } = useContext(AuthContext);
 
   const links = (
     <div className="lg:flex items-center gap-6">
@@ -80,6 +79,7 @@ const Navbar = () => {
             </div>
             <button>
               <NavLink
+                onClick={logOut}
                 to="/"
                 className="py-2 px-6 md:text-lg rounded-lg bg-red-700 text-white cursor-pointer font-semibold hover:bg-red-600"
               >

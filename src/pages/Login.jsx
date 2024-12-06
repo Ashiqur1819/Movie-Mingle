@@ -1,13 +1,15 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../provider/AuthProvider";
 
 
 const Login = () => {
       const [showPassword, setShowPassword] = useState(false);
-          const { loginWithGoogle, setUser } = useContext(AuthContext);
+          const { loginWithGoogle, setUser, userLogin } =
+            useContext(AuthContext);
+            const navigate = useNavigate()
 
       const handlelogin = e => {
         e.preventDefault();
@@ -15,7 +17,7 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        const user = { email, password };
+
 
         if (password.length < 6) {
           toast.error("Password must be at least 6 characters long!");
@@ -31,6 +33,16 @@ const Login = () => {
           toast.error("Password must contain at least one lowercase letter!");
           return;
         }
+
+         userLogin(email, password)
+           .then((result) => {
+             setUser(result.user);
+             toast.success(` Login successful! Welcome back!`);
+             navigate("/");
+           })
+           .catch(() => {
+             toast.error("Invalid login credentials. Please try again.");
+           });
 
       }
 
