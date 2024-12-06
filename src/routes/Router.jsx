@@ -8,6 +8,7 @@ import Register from "../pages/Register";
 import AddMovie from "../pages/AddMovie";
 import MyFavorites from "../pages/MyFavorites";
 import MovieDetails from "../pages/MovieDetails";
+import ContactUs from "../components/ContactUs";
 
 
 const Router = createBrowserRouter([
@@ -39,6 +40,10 @@ const Router = createBrowserRouter([
       {
         path: "/my_favorites",
         element: <MyFavorites></MyFavorites>,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs></ContactUs>
       },
       {
         path: "/login",

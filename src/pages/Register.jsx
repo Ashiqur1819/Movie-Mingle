@@ -1,13 +1,20 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../provider/AuthProvider";
 
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const { loginWithGoogle, setUser } = useContext(AuthContext);
+    const {
+      loginWithGoogle,
+      setUser,
+      createNewUser,
+      updateUserProfile,
+      setLoading,
+    } = useContext(AuthContext);
+  const navigate = useNavigate();
 
     const handleRegister = e => {
       e.preventDefault()
@@ -33,6 +40,42 @@ const Register = () => {
         toast.error("Password must contain at least one lowercase letter!");
         return;
       }
+
+      createNewUser(email, password)
+        .then((result) => {
+          setUser(result.user);
+          toast.success(`Registration successful!`);
+          navigate("/");
+
+          updateUserProfile({ displayName: name, photoURL: photo }).then(() => {
+            setUser((prev) => ({
+              ...prev,
+              displayName: name,
+              photoURL: photo,
+            }));
+            navigate("/");
+            setLoading(true);
+
+            // Send data from client site to server side
+            fetch("http://localhost:3000/users", {
+              method: "POST", 
+              headers: {
+                "content-type" : "application/json"
+              },
+              body: JSON.stringify(user)
+            })
+            .then(res => res.json())
+            .then(data => {
+              console.log(data)
+            })
+          });
+        })
+        .catch((error) =>
+          console.log(error),
+          toast.error(
+            "Oops! We couldn't create your account. Please check your details and try again."
+          )
+        );
     }
 
     const handleLoginWithGoogle = () =>{
@@ -40,6 +83,7 @@ const Register = () => {
       .then(result => {
         setUser(result.user)
            toast.success(`Google login successful!`);
+              navigate("/");
       })
       .catch((error) => {
         toast.error(

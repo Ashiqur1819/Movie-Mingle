@@ -1,7 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const Navbar = () => {
+
+  const {user} = useContext(AuthContext)
+  console.log(user)
 
   const links = (
     <div className="lg:flex items-center gap-6">
@@ -16,6 +21,9 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to="/my_favorites">My Favorites</NavLink>
+      </li>
+      <li>
+        <NavLink to="/contact">Contact Us</NavLink>
       </li>
     </div>
   );
@@ -58,12 +66,37 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-6">
-        <button className="bg-green-600 px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-green-500">
-          <NavLink to="/login">Log In</NavLink>
-        </button>
-        <button className="bg-yellow-600 px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-amber-500">
-          <NavLink to="/register">Register</NavLink>
-        </button>
+        {user ? (
+          <div className="flex items-center gap-5">
+            <div
+              className="tooltip tooltip-bottom"
+              data-tip={user?.displayName}
+            >
+              <img
+                className="w-10 md:w-12 rounded-full cursor-pointer"
+                src={user?.photoURL}
+                alt=""
+              />
+            </div>
+            <button>
+              <NavLink
+                to="/"
+                className="py-2 px-6 md:text-lg rounded-lg bg-red-700 text-white cursor-pointer font-semibold hover:bg-red-600"
+              >
+                Log Out
+              </NavLink>
+            </button>
+          </div>
+        ) : (
+          <div className="flex items-center gap-6">
+            <button className="bg-green-600 px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-green-500">
+              <NavLink to="/login">Log In</NavLink>
+            </button>
+            <button className="bg-yellow-600 px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-amber-500">
+              <NavLink to="/register">Register</NavLink>
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
