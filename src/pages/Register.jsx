@@ -1,16 +1,44 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
+
+    const handleRegister = e => {
+      e.preventDefault()
+      const form = e.target;
+      const name = form.name.value;
+      const email = form.email.value;
+      const photo = form.photo.value;
+      const password = form.password.value;
+
+      const user = {name, email, photo, password}
+
+      if (password.length < 6) {
+        toast.error("Password must be at least 6 characters long!");
+        return;
+      }
+
+      if (!/[A-Z]/.test(password)) {
+        toast.error("Password must contain at least one uppercase letter!");
+        return;
+      }
+
+      if (!/[a-z]/.test(password)) {
+        toast.error("Password must contain at least one lowercase letter!");
+        return;
+      }
+
+    }
     return (
       <div className="card w-full mx-auto max-w-lg rounded-none shrink-0 shadow-2xl mt-12  bg-[#1D232A]">
         <h2 className="text-4xl font-bold text-center mt-6 text-green-500">
           Create A New Account
         </h2>
-        <form className="card-body px-8 py-0 mt-8">
+        <form onSubmit={handleRegister} className="card-body px-8 py-0 mt-8">
           <div className="form-control">
             <label className="label">
               <span className="label-text font-semibold text-base text-gray-100">
