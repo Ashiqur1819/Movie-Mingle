@@ -11,12 +11,14 @@ const Login = () => {
             useContext(AuthContext);
             const navigate = useNavigate()
 
+
+         
+
       const handlelogin = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-
 
 
         if (password.length < 6) {
@@ -34,16 +36,33 @@ const Login = () => {
           return;
         }
 
-         userLogin(email, password)
-           .then((result) => {
-             setUser(result.user);
-             toast.success(` Login successful! Welcome back!`);
-             navigate("/");
-           })
-           .catch(() => {
-             toast.error("Invalid login credentials. Please try again.");
-           });
+        userLogin(email, password)
+          .then((result) => {
+            setUser(result.user);
+            toast.success(` Login successful! Welcome back!`);
+            navigate("/");
 
+            // Update last login time
+            const lastSignInTime = result.user.metadata.lastSignInTime;
+
+            const loginInfo = { email, lastSignInTime };
+            console.log(loginInfo);
+            
+             fetch(`http://localhost:3000/users`, {
+               method: "PATCH",
+               headers: {
+                 "content-type": "application/json",
+               },
+               body: JSON.stringify(loginInfo),
+             })
+               .then((res) => res.json())
+               .then((data) => {
+                 console.log(data);
+               });
+          })
+          .catch(() => {
+            toast.error("Invalid login credentials. Please try again.");
+          });
       }
 
        const handleLoginWithGoogle = () => {
