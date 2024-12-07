@@ -1,8 +1,9 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import { useLoaderData } from "react-router-dom";
-import Select from "react-select/base";
 import Swal from "sweetalert2";
+import Select from "react-select";
+import { toast } from "react-toastify";
 
 const UpdateMovie = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -12,14 +13,9 @@ const UpdateMovie = () => {
   const { _id } = movie;
 
   const handleChange = (option) => {
-    // setSelectedOption(option);
-    console.log(option)
+    setSelectedOption(option);
   };
-
-  const handleMenuOpen = () => {
-    console.log("Menu opened");
-  };
-
+  
   const movieOptions = [
     { value: "action", label: "Action" },
     { value: "drama", label: "Drama" },
@@ -162,7 +158,6 @@ const UpdateMovie = () => {
                 options={movieOptions}
                 classNamePrefix="Select Movie Genre"
                 styles={customStyles}
-                onMenuOpen={handleMenuOpen}
               />
             </span>
           </div>

@@ -11,6 +11,7 @@ import MovieDetails from "../pages/MovieDetails";
 import PrivateRoute from "./PrivateRoute";
 import UpdateMovie from "../pages/UpdateMovie";
 import ContactUs from "../pages/ContactUs";
+import ForgetPassword from "../pages/ForgetPassword";
 
 const Router = createBrowserRouter([
   {
@@ -75,6 +76,10 @@ const Router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/forget_password",
+        element: <ForgetPassword></ForgetPassword>,
       },
     ],
   },

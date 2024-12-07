@@ -84,7 +84,6 @@ const Login = () => {
           <input
             type="email"
             name="email"
-            // onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
             className="input input-bordered rounded-none text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
             required

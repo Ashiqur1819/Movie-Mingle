@@ -6,7 +6,7 @@ const FeturedMovies = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/movies")
+    fetch("http://localhost:3000/")
       .then((res) => res.json())
       .then((data) => {
         setMovies(data);
@@ -28,7 +28,7 @@ const FeturedMovies = () => {
         </p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-        {sortedMovies.slice(0, 6).map((movie) => (
+        {sortedMovies.map((movie) => (
           <Movie movie={movie} key={movie._id}></Movie>
         ))}
       </div>
