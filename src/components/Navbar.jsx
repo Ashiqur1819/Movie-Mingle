@@ -17,19 +17,23 @@ const Navbar = () => {
       <li>
         <NavLink to="/all_movies">All Movies</NavLink>
       </li>
-      <li>
-        <NavLink to="/add_movie">Add Movie</NavLink>
-      </li>
-      <li>
-        <NavLink to="/my_favorites">My Favorites</NavLink>
-      </li>
+      {user?.email && (
+        <li>
+          <NavLink to="/add_movie">Add Movie</NavLink>
+        </li>
+      )}
+      {user?.email && (
+        <li>
+          <NavLink to="/my_favorites">My Favorites</NavLink>
+        </li>
+      )}
       <li>
         <NavLink to="/contact">Contact Us</NavLink>
       </li>
       <button
         type="button"
         onClick={() => handleToggle(setToggle(!toggle))}
-        className={`text-2xl border border-gray-300 p-2 rounded-full ${
+        className={`text-xl border border-gray-300 p-2 rounded-full ${
           toggle ? "bg-black" : "bg-white"
         }`}
       >

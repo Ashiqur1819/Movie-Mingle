@@ -12,7 +12,12 @@ const UpdateMovie = () => {
   const { _id } = movie;
 
   const handleChange = (option) => {
-    setSelectedOption(option);
+    // setSelectedOption(option);
+    console.log(option)
+  };
+
+  const handleMenuOpen = () => {
+    console.log("Menu opened");
   };
 
   const movieOptions = [
@@ -157,6 +162,7 @@ const UpdateMovie = () => {
                 options={movieOptions}
                 classNamePrefix="Select Movie Genre"
                 styles={customStyles}
+                onMenuOpen={handleMenuOpen}
               />
             </span>
           </div>

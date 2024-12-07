@@ -8,9 +8,9 @@ import Register from "../pages/Register";
 import AddMovie from "../pages/AddMovie";
 import MyFavorites from "../pages/MyFavorites";
 import MovieDetails from "../pages/MovieDetails";
-import ContactUs from "../components/ContactUs";
 import PrivateRoute from "./PrivateRoute";
 import UpdateMovie from "../pages/UpdateMovie";
+import ContactUs from "../pages/ContactUs";
 
 const Router = createBrowserRouter([
   {
