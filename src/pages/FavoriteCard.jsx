@@ -1,18 +1,43 @@
 import { Rating } from 'react-simple-star-rating';
+import Swal from 'sweetalert2';
 
 
 const FavoriteCard = ({ movie, movies, setMovies }) => {
   const { _id, poster, title, genre, year, duration, rating } = movie;
 
   const handleDeleteFavourite = (_id) => {
-    fetch(`https://movie-mingle-server-side.vercel.app/favourites/${_id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const remainingMovies = movies.filter((movie) => movie._id !== _id);
-        setMovies(remainingMovies);
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://movie-mingle-server-side.vercel.app/favourites/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if(data.deletedCount > 0){
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your movie has been deleted.",
+                icon: "success",
+              });
+                          const remainingMovies = movies.filter(
+                            (movie) => movie._id !== _id
+                          );
+                          setMovies(remainingMovies);
+            }
+
+          });
+
+      }
+    });
+    
   };
 
   return (

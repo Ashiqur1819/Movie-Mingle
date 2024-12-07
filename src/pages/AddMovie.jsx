@@ -20,6 +20,8 @@ const AddMovie = () => {
    { value: "comedy", label: "Comedy" },
    { value: "thriller", label: "Thriller" },
    { value: "adventure", label: "Adventure" },
+   { value: "mystery", label: "Mystery" },
+   { value: "crime", label: "Crime" },
  ];
 
  const customStyles = {
@@ -86,14 +88,12 @@ const AddMovie = () => {
       .then((data) => {
         if(data.acknowledged){
           Swal.fire({
-            title: `${title} Successfully Added!`,
-            imageUrl: poster,
-            imageWidth: 200,
-            imageAlt: "Custom image",
+            icon: "success",
+            title: "Congrats",
+            text: `${title} Successfully Added!`,
           });
         }
         form.reset();
-        // setRating(null)
       });
 
 

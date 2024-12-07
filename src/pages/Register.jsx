@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../provider/AuthProvider";
 
@@ -53,8 +53,7 @@ const Register = () => {
               displayName: name,
               photoURL: photo,
             }));
-            navigate(location?.state ? location.state : "/");
-            console.log(location.state);
+            navigate("/");
             setLoading(true);
 
             // Send data from client site to server side
@@ -81,7 +80,7 @@ const Register = () => {
            toast.success(`Google login successful!`);
               navigate("/");
       })
-      .catch((error) => {
+      .catch(() => {
         toast.error(
           " Google login failed. Please check your connection and try again."
         );

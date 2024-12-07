@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { FavoriteContext } from "../layouts/MainLayout";
+import Swal from "sweetalert2";
 
 
 const MovieDetails = () => {
@@ -11,25 +12,47 @@ const MovieDetails = () => {
    const navigate = useNavigate()
 
    const handleDeleteMovie = _id => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
         fetch(`https://movie-mingle-server-side.vercel.app/movies/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            // data.deletedCount > 0
-            const remainingMovies = movies.filter((movie) => movie._id !== _id);
-            setMovies(remainingMovies);
-            navigate("/all_movies")
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your movie has been deleted.",
+                icon: "success",
+              });
+
+              const remainingMovies = movies.filter(
+                (movie) => movie._id !== _id
+              );
+              setMovies(remainingMovies);
+              navigate("/all_movies");
+            }
           });
+      }
+    });
+        
    }
 
     return (
       <div>
         <div className="max-w-5xl mx-auto border grid md:grid-cols-2 items-center gap-12 mt-12 mb-12 p-12 rounded-md">
-          <div>
+          <div className="h-full">
             <img
               src={poster}
-              className="h-96 w-full object-cover rounded-md"
+              className="h-full w-full object-cover rounded-md"
               alt=""
             />
           </div>
@@ -69,10 +92,10 @@ const MovieDetails = () => {
                 {summary}
               </p>
             </div>
-            <div className="flex items-center gap-6 mt-6">
+            <div className="flex items-center gap-3 mt-6">
               <button
                 onClick={() => handleAddToFavourite(_id)}
-                className="bg-yellow-600 w-full px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-amber-500"
+                className="bg-yellow-600 w-full px-6 py-3 rounded-md text-white font-semibold text-lg hover:bg-amber-500"
               >
                 Add To Favourite
               </button>
@@ -80,11 +103,14 @@ const MovieDetails = () => {
                 onClick={() => {
                   handleDeleteMovie(_id);
                 }}
-                className="bg-red-700 w-full px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-red-600"
+                className="bg-red-700 w-full px-6 py-3 rounded-md text-white font-semibold text-lg hover:bg-red-600"
               >
                 Delete Movie
               </button>
             </div>
+            <button className="mt-3 bg-green-600 w-full px-6 py-3 rounded-md text-white font-semibold text-lg hover:bg-green-500">
+              <Link to={`/update_movie/${_id}`}>Update Movie</Link>
+            </button>
           </div>
         </div>
         <div className="flex items-center justify-center mt-12">
