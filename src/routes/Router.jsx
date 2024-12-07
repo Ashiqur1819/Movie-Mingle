@@ -9,6 +9,7 @@ import AddMovie from "../pages/AddMovie";
 import MyFavorites from "../pages/MyFavorites";
 import MovieDetails from "../pages/MovieDetails";
 import ContactUs from "../components/ContactUs";
+import PrivateRoute from "./PrivateRoute";
 
 
 const Router = createBrowserRouter([
@@ -25,25 +26,40 @@ const Router = createBrowserRouter([
       {
         path: "/all_movies",
         element: <AllMovies></AllMovies>,
-        loader: () => fetch("https://movie-mingle-server-side.vercel.app/movies"),
+        loader: () =>
+          fetch("https://movie-mingle-server-side.vercel.app/movies"),
       },
       {
         path: "/movie_details/:id",
-        element: <MovieDetails></MovieDetails>,
+        element: (
+          <PrivateRoute>
+            <MovieDetails></MovieDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
-          fetch(`https://movie-mingle-server-side.vercel.app/movies/${params.id}`),
+          fetch(
+            `https://movie-mingle-server-side.vercel.app/movies/${params.id}`
+          ),
       },
       {
         path: "/add_movie",
-        element: <AddMovie></AddMovie>,
+        element: (
+          <PrivateRoute>
+            <AddMovie></AddMovie>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my_favorites",
-        element: <MyFavorites></MyFavorites>,
+        element: (
+          <PrivateRoute>
+            <MyFavorites></MyFavorites>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/contact",
-        element: <ContactUs></ContactUs>
+        element: <ContactUs></ContactUs>,
       },
       {
         path: "/login",

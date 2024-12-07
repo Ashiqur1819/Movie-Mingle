@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../provider/AuthProvider";
 
@@ -15,6 +15,7 @@ const Register = () => {
       setLoading,
     } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation()
 
     const handleRegister = e => {
       e.preventDefault()
@@ -45,7 +46,6 @@ const Register = () => {
         .then((result) => {
           setUser(result.user);
           toast.success(`Registration successful!`);
-          navigate("/");
 
           updateUserProfile({ displayName: name, photoURL: photo }).then(() => {
             setUser((prev) => ({
@@ -53,7 +53,8 @@ const Register = () => {
               displayName: name,
               photoURL: photo,
             }));
-            navigate("/");
+            navigate(location?.state ? location.state : "/");
+            console.log(location.state);
             setLoading(true);
 
             // Send data from client site to server side
@@ -64,13 +65,9 @@ const Register = () => {
               },
               body: JSON.stringify(user)
             })
-            .then(res => res.json())
-            .then(data => {
-              alert("fddf")
-            })
-          });
+            .then(res => res.json())});
         })
-        .catch((error) =>
+        .catch(() =>
           toast.error(
             "Oops! We couldn't create your account. Please check your details and try again."
           )

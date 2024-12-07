@@ -15,7 +15,7 @@ const Slider = () => {
           />
           <div
             style={{ backgroundColor: "rgba(0, 0, 0, .3)" }}
-            className="absolute  w-full h-[450px] md:h-[600px"
+            className="absolute  w-full h-[450px] md:h-[600px]"
           >
             <div className="bg-[#001d20e0] w-[550px] shadow-lg rounded-lg border border-[#db9512] p-12 relative top-32 left-24 space-y-6">
               <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-green-500 max-w-3xl lg:max-w-4xl">

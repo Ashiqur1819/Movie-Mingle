@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../provider/AuthProvider";
 
@@ -10,6 +10,7 @@ const Login = () => {
           const { loginWithGoogle, setUser, userLogin } =
             useContext(AuthContext);
             const navigate = useNavigate()
+            const location = useLocation()
 
 
          
@@ -40,7 +41,7 @@ const Login = () => {
           .then((result) => {
             setUser(result.user);
             toast.success(` Login successful! Welcome back!`);
-            navigate("/");
+            navigate(location?.state ? location.state : "/");
 
             // Update last login time
             const lastSignInTime = result.user.metadata.lastSignInTime;
@@ -54,10 +55,7 @@ const Login = () => {
                },
                body: JSON.stringify(loginInfo),
              })
-               .then((res) => res.json())
-               .then((data) => {
-                 alert("fdfd")
-               });
+               .then((res) => res.json());
           })
           .catch(() => {
             toast.error("Invalid login credentials. Please try again.");
@@ -69,8 +67,9 @@ const Login = () => {
            .then((result) => {
              setUser(result.user);
              toast.success(`Google login successful!`);
+              navigate(location?.state ? location.state : "/");
            })
-           .catch((error) => {
+           .catch(() => {
              toast.error(
                " Google login failed. Please check your connection and try again."
              );
