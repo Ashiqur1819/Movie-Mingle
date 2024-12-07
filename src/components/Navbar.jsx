@@ -2,9 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
-
 const Navbar = () => {
-
   const { user, logOut } = useContext(AuthContext);
 
   const links = (
@@ -34,7 +32,7 @@ const Navbar = () => {
           <div tabIndex={0} role="button" className="lg:hidden mr-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-7 w-7"
+              className="h-7 w-7 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -54,7 +52,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="text-lg text-red-600 md:text-3xl font-bold hidden md:inline-block">
+        <a className="text-lg text-red-600 md:text-3xl font-bold md:inline-block">
           Movie<span className="text-yellow-500">Mingle</span>
         </a>
         {/* <img src={logo} className="w-16 md:hidden" alt="" /> */}
@@ -88,11 +86,11 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <div className="flex items-center gap-6">
-            <button className="bg-green-600 px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-green-500">
+          <div className="flex items-center gap-3 md:gap-6">
+            <button className="bg-green-600 px-3 md:px-6 py-2 rounded-md text-white font-semibold text-sm md:text-lg hover:bg-green-500">
               <NavLink to="/login">Log In</NavLink>
             </button>
-            <button className="bg-yellow-600 px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-amber-500">
+            <button className="bg-yellow-600 px-2 md:px-6 py-2 rounded-md text-white font-semibold text-sm md:text-lg hover:bg-amber-500">
               <NavLink to="/register">Register</NavLink>
             </button>
           </div>

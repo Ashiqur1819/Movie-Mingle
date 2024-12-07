@@ -15,10 +15,9 @@ import { toast } from "react-toastify";
 export const AuthContext = createContext();
 const googleProvider = new GoogleAuthProvider();
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  
 
   // Register
   const createNewUser = (email, password) => {

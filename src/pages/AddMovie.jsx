@@ -1,83 +1,89 @@
 import { toast } from "react-toastify";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
 const AddMovie = () => {
+  const [startDate, setStartDate] = useState(new Date());
+  const [selectedOption, setSelectedOption] = useState(null);
+  const { user } = useContext(AuthContext);
+  const email = user.email;
 
- const [startDate, setStartDate] = useState(new Date());
- const [selectedOption, setSelectedOption] = useState(null)
+  const handleChange = (option) => {
+    setSelectedOption(option);
+  };
 
- const handleChange = option => {
-  setSelectedOption(option)
- }
+  const movieOptions = [
+    { value: "action", label: "Action" },
+    { value: "drama", label: "Drama" },
+    { value: "comedy", label: "Comedy" },
+    { value: "thriller", label: "Thriller" },
+    { value: "adventure", label: "Adventure" },
+    { value: "mystery", label: "Mystery" },
+    { value: "crime", label: "Crime" },
+    { value: "fantasy", label: "Fantasy" },
+  ];
 
- const movieOptions = [
-   { value: "action", label: "Action" },
-   { value: "drama", label: "Drama" },
-   { value: "comedy", label: "Comedy" },
-   { value: "thriller", label: "Thriller" },
-   { value: "adventure", label: "Adventure" },
-   { value: "mystery", label: "Mystery" },
-   { value: "crime", label: "Crime" },
- ];
+  const customStyles = {
+    control: (provided) => ({
+      ...provided,
+      backgroundColor: "#1D232A",
+      border: "none",
+      padding: "5px",
+    }),
+  };
 
- const customStyles = {
-   control: (provided) => ({
-     ...provided,
-     backgroundColor: "#1D232A",
-     border: "none",
-     padding: "5px"
-   }),
- };
-
-  const handleAddMovie = e => {
-    e.preventDefault()
+  const handleAddMovie = (e) => {
+    e.preventDefault();
     const form = e.target;
     const poster = form.poster.value;
-    if (!poster.startsWith("http")){
-     return toast.error("Poster must be a valid URL.");
-    } 
-
-    const title = form.title.value;
-    if(title.length < 2){
-       return toast.error("Title must be at least 2 characters.");
+    if (!poster.startsWith("http")) {
+      return toast.error("Poster must be a valid URL.");
     }
 
-
+    const title = form.title.value;
+    if (title.length < 2) {
+      return toast.error("Title must be at least 2 characters.");
+    }
 
     const genre = selectedOption.map((option) => option.label);
 
-      const duration = form.duration.value;
-      if (duration <= 60) {
-        return toast.error("Duration must be greater than 60 minutes.");
-      }
+    const duration = form.duration.value;
+    if (duration <= 60) {
+      return toast.error("Duration must be greater than 60 minutes.");
+    }
 
-
-    if(!startDate){
+    if (!startDate) {
       return toast.error("Release year is required.");
     }
-    const year = startDate.getFullYear()
+    const year = startDate.getFullYear();
 
-    
     const rating = form.rating.value;
-     if (!rating || rating > 5) {
-       return toast.error("Please provide a rating between 1 and 5.");
-     }
-
+    if (!rating || rating > 5) {
+      return toast.error("Please provide a rating between 1 and 5.");
+    }
 
     const summary = form.summary.value;
-    if(summary.length < 10){
+    if (summary.length < 10) {
       return toast.error("Summary must be at least 10 characters long.");
     }
 
+    const newMovie = {
+      email,
+      poster,
+      title,
+      genre,
+      year,
+      duration,
+      rating,
+      summary,
+    };
 
-    const newMovie = { poster, title, genre, year, duration, rating, summary };
-    
     // Send data from client side to server side
-    fetch("https://movie-mingle-server-side.vercel.app/movies", {
+    fetch("http://localhost:3000/movies", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -86,21 +92,16 @@ const AddMovie = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if(data.acknowledged){
+        if (data.acknowledged) {
           Swal.fire({
             icon: "success",
             title: "Congrats",
             text: `${title} Successfully Added!`,
           });
         }
-        form.reset();
+        // form.reset();
       });
-
-
-  
-  }
-
-
+  };
 
   return (
     <div className="bg-[#001D20]">

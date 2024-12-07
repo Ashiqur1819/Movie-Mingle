@@ -1,6 +1,5 @@
-import { Rating } from 'react-simple-star-rating';
-import Swal from 'sweetalert2';
-
+import { Rating } from "react-simple-star-rating";
+import Swal from "sweetalert2";
 
 const FavoriteCard = ({ movie, movies, setMovies }) => {
   const { _id, poster, title, genre, year, duration, rating } = movie;
@@ -16,28 +15,25 @@ const FavoriteCard = ({ movie, movies, setMovies }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://movie-mingle-server-side.vercel.app/favourites/${_id}`, {
+        fetch(`http://localhost:3000/favourites/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            if(data.deletedCount > 0){
+            if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
                 text: "Your movie has been deleted.",
                 icon: "success",
               });
-                          const remainingMovies = movies.filter(
-                            (movie) => movie._id !== _id
-                          );
-                          setMovies(remainingMovies);
+              const remainingMovies = movies.filter(
+                (movie) => movie._id !== _id
+              );
+              setMovies(remainingMovies);
             }
-
           });
-
       }
     });
-    
   };
 
   return (
@@ -55,7 +51,7 @@ const FavoriteCard = ({ movie, movies, setMovies }) => {
         </h2>
         <p className="text-gray-300 flex items-center gap-2">
           <span className="text-lg font-semibold text-white">Genre: </span>|
-          {genre.map((singleGenre, index) => (
+          {genre?.map((singleGenre, index) => (
             <p key={index}>{singleGenre} |</p>
           ))}
         </p>
