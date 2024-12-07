@@ -18,6 +18,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [toggle, setToggle] = useState(true)
 
   // Register
   const createNewUser = (email, password) => {
@@ -72,6 +73,8 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+  const handleToggle = (status) => {};
+
   const authInfo = {
     createNewUser,
     userLogin,
@@ -83,6 +86,9 @@ const AuthProvider = ({ children }) => {
     loading,
     setLoading,
     forgetPassword,
+    toggle,
+    setToggle,
+    handleToggle
   };
 
   return (

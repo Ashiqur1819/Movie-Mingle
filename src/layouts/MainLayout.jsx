@@ -11,6 +11,7 @@ export const FavoriteContext = createContext();
 const MainLayout = () => {
   const loadedMovies = useLoaderData();
   const [movies, setMovies] = useState([]);
+  const {toggle, setToggle} = useContext(AuthContext)
 
   const handleAddToFavourite = (_id) => {
     const favoriteMovie = [...loadedMovies].find((movie) => movie._id === _id);
@@ -47,7 +48,7 @@ const MainLayout = () => {
   };
   return (
     <FavoriteContext.Provider value={favoriteMovies}>
-      <div className="bg-[#001D20] max-w-7xl mx-auto">
+      <div className={`max-w-7xl mx-auto ${toggle ? 'bg-[#001D20]' : "bg-white"}`}>
         <header>
           <Navbar></Navbar>
         </header>

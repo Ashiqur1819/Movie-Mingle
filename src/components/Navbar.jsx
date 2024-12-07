@@ -1,12 +1,16 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { IoMoon, IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
+
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, toggle, setToggle, handleToggle } =
+    useContext(AuthContext);
+
 
   const links = (
-    <div className="lg:flex items-center gap-6">
+    <div className="lg:flex items-center gap-4">
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
@@ -22,11 +26,26 @@ const Navbar = () => {
       <li>
         <NavLink to="/contact">Contact Us</NavLink>
       </li>
+      <button
+        type="button"
+        onClick={() => handleToggle(setToggle(!toggle))}
+        className={`text-2xl border border-gray-300 p-2 rounded-full ${
+          toggle ? "bg-black" : "bg-white"
+        }`}
+      >
+        {toggle ? (
+          <IoSunnyOutline className="text-white-500" />
+        ) : (
+          <IoMoon className="text-black" />
+        )}
+      </button>
     </div>
   );
 
+  
+
   return (
-    <div className="navbar px-4 md:px-8 lg:px-12 py-6 bg-[#001D20]">
+    <div className={`navbar px-4 md:px-8 lg:px-12 py-6 ${toggle ? "bg-[#001D20]" : "bg-white"}`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="lg:hidden mr-2">
