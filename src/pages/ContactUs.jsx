@@ -1,17 +1,19 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ContactUs = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
+
   const onSubmit = (data) => {
     const name = data.example;
-    const email = data.exampleRequired
-    const contactUser = {name, email}
+    const email = data.exampleRequired;
+    const contactUser = { name, email };
 
     // Send contact user data from client site to server site
     fetch("https://movie-mingle-server-side.vercel.app/contact_users", {
@@ -21,20 +23,20 @@ const ContactUs = () => {
       },
       body: JSON.stringify(contactUser),
     })
-    .then((res) => res.json())
-    .then(data => {
-      if (data.acknowledged) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Congratulations",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    });
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Congratulations",
+            showConfirmButton: false,
+            timer: 1000,
+          });
+          navigate("/");
+        }
+      });
   };
-
 
   return (
     <div className=" max-w-md mx-auto bg-[#002c31] p-12 rounded-md mt-12">
@@ -54,11 +56,12 @@ const ContactUs = () => {
           type="email"
           className="p-2 input mb-3"
           placeholder="Email"
-          
           {...register("exampleRequired", { required: true })}
         />
 
-        {errors.exampleRequired && <span className="text-red-500">This field is required</span>}
+        {errors.exampleRequired && (
+          <span className="text-red-500">This field is required</span>
+        )}
 
         <input
           className="text-white p-2 bg-green-600 input cursor-pointer"
