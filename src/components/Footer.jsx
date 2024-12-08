@@ -8,13 +8,13 @@ import {
 import { AuthContext } from "../provider/AuthProvider";
 
 const Footer = () => {
-  const {toggle, setToggle} = useContext(AuthContext)
+  const {toggle} = useContext(AuthContext)
   return (
     <footer className={` mt-24 ${toggle ? "bg-[#000b1b]" : "bg-gray-100"}`}>
       <div className="text-white max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-12 lg:gap-24 px-4 md:px-8 lg:px-12 p-12">
         <div>
           <h2 className="text-5xl font-bold text-red-600">
-            Movie<span className="text-yellow-500">Mingle</span>
+            Movie<span className={`${toggle ? "text-yellow-500" : "text-yellow-600"}`}>Mingle</span>
           </h2>
           <p className="mt-3 text-gray-500">
             It is a platform where movie enthusiasts connect, discover, and
@@ -25,7 +25,7 @@ const Footer = () => {
           </p>
         </div>
         <div className="flex md:items-end flex-col justify-end">
-          <h3 className="text-3xl font-bold text-yellow-500 mb-3">
+          <h3 className={`text-3xl font-bold mb-3 ${toggle ? "text-yellow-500" : "text-yellow-600"}`}>
             Contact Us
           </h3>
           <p className="text-gray-500">

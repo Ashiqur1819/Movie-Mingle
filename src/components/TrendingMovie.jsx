@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const TrendingMovie = ({movie}) => {
       const {_id, poster, title, genre, year, duration, rating, summary } = movie;
+      const {toggle} = useContext(AuthContext)
     return (
-      <div className="border border-gray-700 rounded-lg p-6">
+      <div
+        className={` rounded-lg p-6 ${
+          toggle ? "border border-gray-700" : " bg-gray-200 shadow-md"
+        }`}
+      >
         <div>
           <img src={poster} className="rounded-lg" alt="" />
         </div>
@@ -14,36 +20,60 @@ const TrendingMovie = ({movie}) => {
           </h2>
           <div className="grid grid-cols-2 items-center gap-12">
             <div className="text-gray-300 flex items-center gap-2">
-              <span className="text-lg font-semibold text-white">Genre: </span>
+              <span
+                className={`text-lg font-semibold ${
+                  toggle ? "text-white" : "text-gray-900"
+                }`}
+              >
+                Genre:{" "}
+              </span>
               <div className="flex flex-row gap-3 mt-2">
-                {genre.map((g) => (
-                  <p className="bg-gray-600 text-yellow-500 rounded-sm font-medium px-3 py-1 text-sm">
+                {genre.map((g, index) => (
+                  <p key={index} className="bg-gray-600 text-yellow-500 rounded-sm font-medium px-3 py-1 text-sm">
                     {g}
                   </p>
                 ))}
               </div>
             </div>
-            <p className="text-gray-300">
-              <span className="text-lg font-semibold text-white">
+            <p className={`${toggle ? "text-gray-300" : "text-gray-600"}`}>
+              <span
+                className={`text-lg font-semibold ${
+                  toggle ? "text-white" : "text-gray-900"
+                }`}
+              >
                 Duration:{" "}
               </span>
               {duration} minutes
             </p>
           </div>
           <div className="grid grid-cols-2 items-center gap-12">
-            <p className="text-gray-300">
-              <span className="text-lg font-semibold text-white">
+            <p className={`${toggle ? "text-gray-300" : "text-gray-600"}`}>
+              <span
+                className={`text-lg font-semibold ${
+                  toggle ? "text-white" : "text-gray-900"
+                }`}
+              >
                 Releasing Year:{" "}
               </span>
               {year}
             </p>
-            <p className="text-gray-300">
-              <span className="text-lg font-semibold text-white">Rating: </span>
+            <p className={`${toggle ? "text-gray-300" : "text-gray-600"}`}>
+              <span
+                className={`text-lg font-semibold ${
+                  toggle ? "text-white" : "text-gray-900"
+                }`}
+              >
+                Rating:{" "}
+              </span>
               {rating}/5
             </p>
           </div>
-          <p className="text-gray-300">
-            <span className="text-lg font-semibold text-white">
+          <p className={`${toggle ? "text-gray-300" : "text-gray-600"}`}>
+            <span
+              className={`text-lg font-semibold ${
+                toggle ? "text-white" : "text-gray-900"
+              }`}
+            >
               Description:{" "}
             </span>
             {summary}

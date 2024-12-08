@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Movie from "./Movie";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const FeturedMovies = () => {
   const [movies, setMovies] = useState([]);
+  const {toggle} = useContext(AuthContext)
 
   useEffect(() => {
     fetch("http://localhost:3000/")
@@ -18,7 +20,7 @@ const FeturedMovies = () => {
   return (
     <div>
       <div className="text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl text-yellow-500 font-bold">
+        <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${toggle ? "text-yellow-500" : "text-yellow-600"}`}>
           Featured Movies
         </h2>
         <p className="max-w-3xl mx-auto text-gray-400 mt-3">
