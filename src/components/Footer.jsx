@@ -11,7 +11,7 @@ const Footer = () => {
   const {toggle, setToggle} = useContext(AuthContext)
   return (
     <footer className={` mt-24 ${toggle ? "bg-[#000b1b]" : "bg-gray-100"}`}>
-      <div className="text-white max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-24 px-4 md:px-8 lg:px-12 p-12">
+      <div className="text-white max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-12 lg:gap-24 px-4 md:px-8 lg:px-12 p-12">
         <div>
           <h2 className="text-5xl font-bold text-red-600">
             Movie<span className="text-yellow-500">Mingle</span>
@@ -24,7 +24,7 @@ const Footer = () => {
             everything cinema!
           </p>
         </div>
-        <div className="flex items-end flex-col justify-end">
+        <div className="flex md:items-end flex-col justify-end">
           <h3 className="text-3xl font-bold text-yellow-500 mb-3">
             Contact Us
           </h3>

@@ -47,8 +47,8 @@ const MovieDetails = () => {
   };
 
   return (
-    <div>
-      <div className="max-w-5xl mx-auto border grid md:grid-cols-2 items-center gap-12 mt-12 mb-12 p-12 rounded-md">
+    <div className="w-11/12 mx-auto">
+      <div className="max-w-5xl mx-auto border grid md:grid-cols-2 items-center gap-12 mt-12 mb-12 p-6 md:p-12 rounded-md">
         <div className="h-full">
           <img
             src={poster}
@@ -88,7 +88,7 @@ const MovieDetails = () => {
               {summary}
             </p>
           </div>
-          <div className="flex items-center gap-3 mt-6">
+          <div className="md:flex items-center gap-3 mt-6">
             <button
               onClick={() => handleAddToFavourite(_id)}
               className="bg-yellow-600 w-full px-6 py-3 rounded-md text-white font-semibold text-lg hover:bg-amber-500"
@@ -99,7 +99,7 @@ const MovieDetails = () => {
               onClick={() => {
                 handleDeleteMovie(_id);
               }}
-              className="bg-red-700 w-full px-6 py-3 rounded-md text-white font-semibold text-lg hover:bg-red-600"
+              className="mt-3 md:mt-0 bg-red-700 w-full px-6 py-3 rounded-md text-white font-semibold text-lg hover:bg-red-600"
             >
               Delete Movie
             </button>

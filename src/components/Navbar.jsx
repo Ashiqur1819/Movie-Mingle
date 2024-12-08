@@ -33,7 +33,7 @@ const Navbar = () => {
       <button
         type="button"
         onClick={() => handleToggle(setToggle(!toggle))}
-        className={`text-xl border border-gray-300 p-2 rounded-full ${
+        className={`text-xl border border-gray-300 p-2 rounded-full ml-4 mt-2 lg:mt-0 ${
           toggle ? "bg-black" : "bg-white"
         }`}
       >
@@ -55,7 +55,7 @@ const Navbar = () => {
           <div tabIndex={0} role="button" className="lg:hidden mr-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-7 w-7 text-white"
+              className={`h-7 w-7 ${toggle ? "text-white" : "text-black"}`}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

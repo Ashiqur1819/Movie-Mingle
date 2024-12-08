@@ -7,7 +7,8 @@ const MyFavorites = () => {
   const { user } = useContext(AuthContext);
   const email = user.email;
   const filteredMovies = movies.filter((movie) => movie?.email === email);
-
+console.log(movies)
+console.log(filteredMovies)
   useEffect(() => {
     fetch("http://localhost:3000/favourites")
       .then((res) => res.json())

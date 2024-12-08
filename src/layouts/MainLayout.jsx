@@ -14,6 +14,7 @@ const MainLayout = () => {
   const {toggle, setToggle} = useContext(AuthContext)
 
   const handleAddToFavourite = (_id) => {
+    console.log(_id)
     const favoriteMovie = [...loadedMovies].find((movie) => movie._id === _id);
 
     if (!movies.includes(favoriteMovie)) {
@@ -30,6 +31,7 @@ const MainLayout = () => {
       })
         .then((res) => res.json())
         .then((data) => {
+          console.log(data)
           if (data.acknowledged) {
             return toast.success(
               `${favoriteMovie.title} successfully added to my favourite list!`
