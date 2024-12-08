@@ -6,15 +6,18 @@ const MyFavorites = () => {
   const [movies, setMovies] = useState([]);
   const { user } = useContext(AuthContext);
   const email = user.email;
-  const filteredMovies = movies.filter((movie) => movie?.email === email);
-console.log(movies)
-console.log(filteredMovies)
+
+  const filteredMovies = movies.filter((movie) => movie?.userEmail === email);
+
   useEffect(() => {
     fetch("http://localhost:3000/favourites")
       .then((res) => res.json())
       .then((data) => {
         setMovies(data);
-      });
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }, []);
 
   return (

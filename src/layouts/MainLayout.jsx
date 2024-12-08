@@ -12,14 +12,16 @@ const MainLayout = () => {
   const loadedMovies = useLoaderData();
   const [movies, setMovies] = useState([]);
   const {toggle, setToggle} = useContext(AuthContext)
+  const {user} = useContext(AuthContext)
 
   const handleAddToFavourite = (_id) => {
-    console.log(_id)
+
     const favoriteMovie = [...loadedMovies].find((movie) => movie._id === _id);
 
     if (!movies.includes(favoriteMovie)) {
       const updateFavoriteMovies = [...movies, favoriteMovie];
       setMovies(updateFavoriteMovies);
+      const {_id, ...rest}= favoriteMovie 
 
       // Send favorite movie data client side to server side
       fetch("http://localhost:3000/favourites", {
@@ -27,11 +29,10 @@ const MainLayout = () => {
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(favoriteMovie),
+        body: JSON.stringify({...rest, userEmail: user.email}),
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data)
           if (data.acknowledged) {
             return toast.success(
               `${favoriteMovie.title} successfully added to my favourite list!`

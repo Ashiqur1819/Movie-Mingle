@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import {  NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-import { IoMoon, IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
+import { IoMoon, IoSunnyOutline } from "react-icons/io5";
 
 
 const Navbar = () => {

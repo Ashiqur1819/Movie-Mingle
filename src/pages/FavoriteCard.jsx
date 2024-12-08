@@ -5,6 +5,7 @@ const FavoriteCard = ({ movie, movies, setMovies }) => {
   const { _id, poster, title, genre, year, duration, rating } = movie;
 
   const handleDeleteFavourite = (_id) => {
+
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -20,6 +21,7 @@ const FavoriteCard = ({ movie, movies, setMovies }) => {
         })
           .then((res) => res.json())
           .then((data) => {
+            console.log(data)
             if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
