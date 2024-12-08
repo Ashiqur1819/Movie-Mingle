@@ -29,6 +29,7 @@ const AddMovie = () => {
     { value: "biography", label: "Biography" },
     { value: "history", label: "History" },
     { value: "animation", label: "Animation" },
+    { value: "spy", label: "Spy" },
   ];
 
   const customStyles = {

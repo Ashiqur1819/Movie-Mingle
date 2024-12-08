@@ -18,7 +18,7 @@ const TrendingMovie = ({movie}) => {
           <h2 className="text-3xl md:text-4xl mt-4  font-bold text-red-600">
             {title}
           </h2>
-          <div className="grid grid-cols-2 items-center gap-12">
+          <div className="grid md:grid-cols-2 items-center md:gap-12">
             <div className="text-gray-300 flex items-center gap-2">
               <span
                 className={`text-lg font-semibold ${
@@ -35,7 +35,7 @@ const TrendingMovie = ({movie}) => {
                 ))}
               </div>
             </div>
-            <p className={`${toggle ? "text-gray-300" : "text-gray-600"}`}>
+            <p className={`${toggle ? "text-gray-300" : "text-gray-600"} mt-2`}>
               <span
                 className={`text-lg font-semibold ${
                   toggle ? "text-white" : "text-gray-900"
@@ -46,7 +46,7 @@ const TrendingMovie = ({movie}) => {
               {duration} minutes
             </p>
           </div>
-          <div className="grid grid-cols-2 items-center gap-12">
+          <div className="grid md:grid-cols-2 items-center md:gap-12">
             <p className={`${toggle ? "text-gray-300" : "text-gray-600"}`}>
               <span
                 className={`text-lg font-semibold ${

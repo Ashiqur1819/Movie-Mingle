@@ -25,7 +25,7 @@ const TrendingNow = () => {
         >
           Trending Now
         </h2>
-        <div className="mt-12 grid grid-cols-2 gap-12">
+        <div className="mt-12 grid lg:grid-cols-2 gap-12">
           {trendingMovies.slice(0, 4).map((movie) => (
             <TrendingMovie movie={movie} key={movie._id}></TrendingMovie>
           ))}

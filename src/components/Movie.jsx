@@ -18,7 +18,7 @@ const Movie = ({ movie }) => {
       <figure>
         <img
           src={poster}
-          className="h-52 w-full object-cover rounded-md"
+          className="h-60 w-full object-cover rounded-md"
           alt=""
         />
       </figure>

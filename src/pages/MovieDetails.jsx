@@ -49,7 +49,7 @@ const MovieDetails = () => {
 
   return (
     <div className="w-11/12 mx-auto">
-      <div className="max-w-5xl mx-auto border grid md:grid-cols-2 items-center gap-12 mt-12 mb-12 p-6 md:p-8 rounded-md">
+      <div className="max-w-5xl mx-auto border grid lg:grid-cols-2 items-center gap-12 mt-12 mb-12 p-6 md:p-8 rounded-md">
         <div className="h-full">
           <img
             src={poster}

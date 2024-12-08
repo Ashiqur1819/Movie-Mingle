@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import s1 from "../assets/1.jpg";
 import s2 from "../assets/2.jpg";
 import s3 from "../assets/3.jpg";
@@ -9,23 +10,46 @@ const Slider = () => {
         id="slide1"
         className="carousel-item relative w-full h-96 md:h-[600px] bg-[#001D20]"
       >
-        <img src={s1} className="w-full h-96 md:h-[600px] " />
+        <img src={s1} className="w-full h-96 md:h-[600px] object-cover " />
         <div
-          style={{ backgroundColor: "rgba(0, 0, 0, .3)" }}
+          style={{ backgroundColor: "rgba(0, 0, 0, .5)" }}
           className="absolute  w-full h-[450px] md:h-[600px]"
         >
-          <div className="bg-[#001d20e0] w-11/12 mx-auto md:w-[550px] shadow-lg rounded-lg border border-[#db9512] p-4 md:p-8 lg:p-12 relative md:top-32 md:left-24 space-y-6">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-green-500 max-w-3xl lg:max-w-4xl">
-              Dive Into the World of Movies With{" "}
-              <span className="text-yellow-500">MovieMingle!</span>
+          <div className="bg-[#00000015] w-full  md:w-[550px] shadow-lg rounded-lg  px-4 py-12 md:p-8 lg:p-12 relative md:top-32 md:left-24 space-y-6">
+            <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-red-600 max-w-3xl lg:max-w-4xl uppercase">
+              S a l a a r
             </h2>
+            <div className="text-white flex items-center gap-3">
+              <p className="bg-yellow-600 px-4 py-2 rounded-sm">Action</p>
+              <p className="bg-yellow-600 px-4 py-2 rounded-sm">Thriller</p>
+            </div>
+            <div className="md:flex gap-6">
+              <p className="text-lg font-semibold text-green-600">
+                Duration:{" "}
+                <span className="text-base font-normal text-yellow-500">
+                  158 minutes
+                </span>
+              </p>
+              <p className="text-lg font-semibold text-green-600">
+                Release:{" "}
+                <span className="text-base font-normal text-yellow-500">
+                  2023
+                </span>
+              </p>
+              <p className="text-lg font-semibold text-green-600">
+                Rating:{" "}
+                <span className="text-base font-normal text-yellow-500">
+                  5/5
+                </span>
+              </p>
+            </div>
             <p className=" text-gray-300 max-w-3xl md:max-w-xl lg:max-w-3xl">
-              Immerse yourself in a community where every film finds its
-              audience. Explore a vast collection of movies, share your
-              thoughts, and connect with fellow movie buffs. Whether you're into
-              blockbusters, indie gems, or timeless classics, MovieMingle is
-              your ultimate destination to celebrate the art of cinema!
+              A powerful leader embarks on a mission to honor a promise made to
+              a dying friend while battling powerful adversaries.
             </p>
+            <button className="bg-green-600 w-full px-6 py-2 rounded-sm text-white font-semibold text-lg mt-6 hover:bg-green-500">
+              <Link to={`/all_movies`}>Explore All Movies</Link>
+            </button>
           </div>
         </div>
         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between px-6">
@@ -43,21 +67,44 @@ const Slider = () => {
       >
         <img src={s2} className="w-full h-[450px] md:h-[600px] object-cover" />
         <div
-          style={{ backgroundColor: "rgba(0, 0, 0, .6)" }}
+          style={{ backgroundColor: "rgba(0, 0, 0, .8)" }}
           className="absolute  w-full h-[450px] md:h-[600px]"
         >
-          <div className="bg-[#001d20e0] w-[550px] shadow-lg rounded-lg border border-[#db9512] p-12 relative top-24 left-24 space-y-6">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-green-500">
-              From Blockbusters to Classics –{" "}
-              <span className="text-yellow-500">Find Your Next Favorite!</span>
+          <div className="bg-[#00000011] w-full  md:w-[550px] shadow-lg rounded-lg  px-4 py-12 md:p-8 lg:p-12 relative md:top-32 md:left-24 space-y-6">
+            <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-red-600 max-w-3xl lg:max-w-4xl uppercase">
+              P a t h a n
             </h2>
+            <div className="text-white flex items-center gap-3">
+              <p className="bg-yellow-600 px-4 py-2 rounded-sm">Action</p>
+              <p className="bg-yellow-600 px-4 py-2 rounded-sm">Spy</p>
+            </div>
+            <div className="md:flex gap-6">
+              <p className="text-lg font-semibold text-green-600">
+                Duration:{" "}
+                <span className="text-base font-normal text-yellow-500">
+                  146 minutes
+                </span>
+              </p>
+              <p className="text-lg font-semibold text-green-600">
+                Release:{" "}
+                <span className="text-base font-normal text-yellow-500">
+                  2023
+                </span>
+              </p>
+              <p className="text-lg font-semibold text-green-600">
+                Rating:{" "}
+                <span className="text-base font-normal text-yellow-500">
+                  5/5
+                </span>
+              </p>
+            </div>
             <p className=" text-gray-300 max-w-3xl md:max-w-xl lg:max-w-3xl">
-              MovieMingle is your guide to cinematic discovery. Explore the
-              latest blockbusters, timeless classics, and hidden gems. Rate,
-              review, and share your favorites while connecting with a
-              passionate community of movie enthusiasts. Your next great movie
-              experience starts here!
+              A spy returns from exile to prevent a major terrorist attack
+              threatening India's security.
             </p>
+            <button className="bg-green-600 w-full px-6 py-2 rounded-sm text-white font-semibold text-lg mt-6 hover:bg-green-500">
+              <Link to={`/all_movies`}>Explore All Movies</Link>
+            </button>
           </div>
         </div>
 
@@ -76,21 +123,44 @@ const Slider = () => {
       >
         <img src={s3} className="w-full h-[450px] md:h-[600px] object-cover" />
         <div
-          style={{ backgroundColor: "rgba(0, 0, 0, .5)" }}
+          style={{ backgroundColor: "rgba(0, 0, 0, .7)" }}
           className="absolute  w-full h-[450px] md:h-[600px]"
         >
-          <div className="bg-[#001d2080] w-[550px] shadow-lg rounded-lg border border-[#db9512] p-12 relative top-32 left-24  space-y-6">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-green-500">
-              Rate, Review, and Rediscover{" "}
-              <span className="text-yellow-500">Cinema with Us! </span>
+          <div className="bg-[#00000007] w-full  md:w-[550px]  shadow-lg rounded-lg  px-4 py-12 md:p-8 lg:p-12 relative md:top-32 md:left-24 space-y-6">
+            <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-red-600 max-w-3xl lg:max-w-4xl uppercase">
+              K.G.F: C h a p t e r 2
             </h2>
+            <div className="text-white flex items-center gap-3">
+              <p className="bg-yellow-600 px-4 py-2 rounded-sm">Action</p>
+              <p className="bg-yellow-600 px-4 py-2 rounded-sm">Drama</p>
+            </div>
+            <div className="md:flex items-start gap-6">
+              <p className="text-lg font-semibold text-green-600">
+                Duration:{" "}
+                <span className="text-base font-normal text-yellow-500">
+                  168 minutes
+                </span>
+              </p>
+              <p className="text-lg font-semibold text-green-600">
+                Release:{" "}
+                <span className="text-base font-normal text-yellow-500">
+                  2022
+                </span>
+              </p>
+              <p className="text-lg font-semibold text-green-600">
+                Rating:{" "}
+                <span className="text-base font-normal text-yellow-500">
+                  5/5
+                </span>
+              </p>
+            </div>
             <p className=" text-gray-300 max-w-3xl md:max-w-xl lg:max-w-3xl">
-              MovieMingle is the ultimate destination for movie lovers to
-              explore new films, share their reviews, and connect with fellow
-              cinephiles. Discover hidden gems, rate your favorites, and join a
-              community that celebrates the magic of storytelling on the big
-              screen!
+              Rocky takes control of the Kolar Gold Fields but faces powerful
+              adversaries.
             </p>
+            <button className="bg-green-600 w-full px-6 py-2 rounded-sm text-white font-semibold text-lg mt-6 hover:bg-green-500">
+              <Link to={`/all_movies`}>Explore All Movies</Link>
+            </button>
           </div>
         </div>
         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between px-6">
