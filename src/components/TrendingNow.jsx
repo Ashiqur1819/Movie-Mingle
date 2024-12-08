@@ -17,11 +17,11 @@ const TrendingNow = () => {
     
     return (
       <div>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-red-600">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-yellow-500">
           Trending Now
         </h2>
         <div className="mt-12 grid grid-cols-2 gap-12">
-          {trendingMovies.map((movie) => (
+          {trendingMovies.slice(0,4).map((movie) => (
             <TrendingMovie movie={movie} key={movie._id}></TrendingMovie>
           ))}
         </div>

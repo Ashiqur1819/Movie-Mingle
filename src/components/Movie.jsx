@@ -5,7 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Movie = ({ movie }) => {
   const { _id, poster, title, genre, year, duration, rating } = movie;
-  const {toggle, setToggle} = useContext(AuthContext)
+  const {toggle} = useContext(AuthContext)
 
   return (
     <div
@@ -34,10 +34,15 @@ const Movie = ({ movie }) => {
           </span>
           |
           {genre.map((singleGenre, index) => (
-            <p key={index}>{singleGenre} |</p>
+            <p
+              key={index}
+              className={`${toggle ? "text-gray-300" : "text-gray-600"}`}
+            >
+              {singleGenre} |
+            </p>
           ))}
         </p>
-        <p className="text-gray-500">
+        <p className={`${toggle ? "text-gray-300" : "text-gray-600"}`}>
           <span
             className={`text-lg font-semibold ${
               toggle ? "text-white" : "text-gray-900"
@@ -47,7 +52,7 @@ const Movie = ({ movie }) => {
           </span>
           {duration} minutes
         </p>
-        <p className="text-gray-500">
+        <p className={`${toggle ? "text-gray-300" : "text-gray-600"}`}>
           <span
             className={`text-lg font-semibold ${
               toggle ? "text-white" : "text-gray-900"

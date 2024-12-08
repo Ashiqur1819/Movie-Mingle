@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TrendingMovie = ({movie}) => {
-      const {poster, title, genre, year, duration, rating, summary } = movie;
+      const {_id, poster, title, genre, year, duration, rating, summary } = movie;
     return (
       <div className="border border-gray-700 rounded-lg p-6">
         <div>
@@ -14,9 +15,11 @@ const TrendingMovie = ({movie}) => {
           <div className="grid grid-cols-2 items-center gap-12">
             <div className="text-gray-300 flex items-center gap-2">
               <span className="text-lg font-semibold text-white">Genre: </span>
-              <div className='flex flex-row gap-3 mt-2'>
+              <div className="flex flex-row gap-3 mt-2">
                 {genre.map((g) => (
-                  <p className='bg-gray-600 text-yellow-500 rounded-sm font-medium px-3 py-1 text-sm'>{g}</p>
+                  <p className="bg-gray-600 text-yellow-500 rounded-sm font-medium px-3 py-1 text-sm">
+                    {g}
+                  </p>
                 ))}
               </div>
             </div>
@@ -36,7 +39,7 @@ const TrendingMovie = ({movie}) => {
             </p>
             <p className="text-gray-300">
               <span className="text-lg font-semibold text-white">Rating: </span>
-              {rating}
+              {rating}/5
             </p>
           </div>
           <p className="text-gray-300">
@@ -46,6 +49,9 @@ const TrendingMovie = ({movie}) => {
             {summary}
           </p>
         </div>
+        <button className="bg-green-600 w-full px-6 py-2 rounded-md text-white font-semibold text-lg mt-6 hover:bg-green-500">
+          <Link to={`/movie_details/${_id}`}>See Details</Link>
+        </button>
       </div>
     );
 };
