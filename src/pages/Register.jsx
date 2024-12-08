@@ -56,7 +56,7 @@ const Register = () => {
           setLoading(false);
 
           // Send data from client site to server side
-          fetch("http://localhost:3000/users", {
+          fetch("https://movie-mingle-server-side.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",

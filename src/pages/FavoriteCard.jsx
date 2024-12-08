@@ -16,12 +16,11 @@ const FavoriteCard = ({ movie, movies, setMovies }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/favourites/${_id}`, {
+        fetch(`https://movie-mingle-server-side.vercel.app/favourites/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data)
             if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",

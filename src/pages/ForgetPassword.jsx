@@ -14,7 +14,6 @@ const ForgetPassword = () => {
     const handleForgetPassword = (e) => {
       e.preventDefault();
       const email = e.target.email.value;
-      console.log(email)
 
         forgetPassword(email)
           .then(() => {
@@ -22,8 +21,7 @@ const ForgetPassword = () => {
             toast.success("Password reset link sent to your email!");
             window.open("https://mail.google.com/mail/u/0/#inbox", "_blank");
           })
-          .catch((error) => {
-            console.log(error)
+          .catch(() => {
             toast.error(
               "Failed to send the password reset email. Please try again later."
             );

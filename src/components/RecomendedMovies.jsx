@@ -8,7 +8,7 @@ const RecomendedMovies = () => {
         const {toggle} = useContext(AuthContext)
 
         useEffect(() => {
-          fetch("http://localhost:3000/movies")
+          fetch("https://movie-mingle-server-side.vercel.app/movies")
             .then((res) => res.json())
             .then((data) => setMovies(data));
         }, []);

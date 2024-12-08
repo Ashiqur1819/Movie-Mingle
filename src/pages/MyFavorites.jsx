@@ -10,13 +10,13 @@ const MyFavorites = () => {
   const filteredMovies = movies.filter((movie) => movie?.userEmail === email);
 
   useEffect(() => {
-    fetch("http://localhost:3000/favourites")
+    fetch("https://movie-mingle-server-side.vercel.app/favourites")
       .then((res) => res.json())
       .then((data) => {
         setMovies(data);
       })
-      .catch((error) => {
-        console.log(error)
+      .catch(() => {
+ 
       })
   }, []);
 

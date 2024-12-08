@@ -81,7 +81,7 @@ const UpdateMovie = () => {
     };
 
     // Send update movie data from server site to client site
-    fetch(`http://localhost:3000/movies/${_id}`, {
+    fetch(`https://movie-mingle-server-side.vercel.app/movies/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
