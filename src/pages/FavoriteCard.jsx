@@ -38,6 +38,7 @@ const FavoriteCard = ({ movie, movies, setMovies }) => {
     });
   };
 
+
   return (
     <div className="border border-gray-600 p-5 rounded-md bg-[#081718a9]">
       <figure>
