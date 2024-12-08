@@ -24,7 +24,7 @@ const Register = () => {
     const photo = form.photo.value;
     const password = form.password.value;
 
-    const user = { name, email, photo, password };
+    const user = { name, email, photo};
 
     if (password.length < 6) {
       toast.error("Password must be at least 6 characters long!");
@@ -56,7 +56,7 @@ const Register = () => {
           setLoading(false);
 
           // Send data from client site to server side
-          fetch("https://movie-mingle-server-side.vercel.app/users", {
+          fetch("http://localhost:3000/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",
