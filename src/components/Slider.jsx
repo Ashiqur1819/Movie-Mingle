@@ -47,7 +47,7 @@ const Slider = () => {
               A powerful leader embarks on a mission to honor a promise made to
               a dying friend while battling powerful adversaries.
             </p>
-            <button className="bg-green-600 w-full px-6 py-2 rounded-sm text-white font-semibold text-lg mt-6 hover:bg-green-500">
+            <button className="bg-green-600 px-6 py-2 rounded-sm text-white font-semibold text-lg mt-6 hover:bg-green-500">
               <Link to={`/all_movies`}>Explore All Movies</Link>
             </button>
           </div>
@@ -102,7 +102,7 @@ const Slider = () => {
               A spy returns from exile to prevent a major terrorist attack
               threatening India's security.
             </p>
-            <button className="bg-green-600 w-full px-6 py-2 rounded-sm text-white font-semibold text-lg mt-6 hover:bg-green-500">
+            <button className="bg-green-600 px-6 py-2 rounded-sm text-white font-semibold text-lg mt-6 hover:bg-green-500">
               <Link to={`/all_movies`}>Explore All Movies</Link>
             </button>
           </div>
@@ -158,7 +158,7 @@ const Slider = () => {
               Rocky takes control of the Kolar Gold Fields but faces powerful
               adversaries.
             </p>
-            <button className="bg-green-600 w-full px-6 py-2 rounded-sm text-white font-semibold text-lg mt-6 hover:bg-green-500">
+            <button className="bg-green-600  px-6 py-2 rounded-sm text-white font-semibold text-lg mt-6 hover:bg-green-500">
               <Link to={`/all_movies`}>Explore All Movies</Link>
             </button>
           </div>
