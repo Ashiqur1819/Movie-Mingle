@@ -15,7 +15,7 @@ const Slider = () => {
           style={{ backgroundColor: "rgba(0, 0, 0, .5)" }}
           className="absolute  w-full h-[450px] md:h-[600px]"
         >
-          <div className="bg-[#00000015] w-full  md:w-[550px] shadow-lg rounded-lg  px-4 py-12 md:p-8 lg:p-12 relative md:top-32 md:left-24 space-y-6">
+          <div className="bg-[#00000015] w-full  md:w-[550px] shadow-lg rounded-lg  px-4 py-12 md:py-8 lg:py-2 md:p-8 lg:p-12 relative md:top-32 md:left-24 space-y-6">
             <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-red-600 max-w-3xl lg:max-w-4xl uppercase">
               S a l a a r
             </h2>
@@ -70,7 +70,7 @@ const Slider = () => {
           style={{ backgroundColor: "rgba(0, 0, 0, .8)" }}
           className="absolute  w-full h-[450px] md:h-[600px]"
         >
-          <div className="bg-[#00000011] w-full  md:w-[550px] shadow-lg rounded-lg  px-4 py-12 md:p-8 lg:p-12 relative md:top-32 md:left-24 space-y-6">
+          <div className="bg-[#00000011] w-full  md:w-[550px] shadow-lg rounded-lg  px-4 py-12 md:py-8 lg:py-2 md:p-8 lg:p-12 relative md:top-32 md:left-24 space-y-6">
             <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-red-600 max-w-3xl lg:max-w-4xl uppercase">
               P a t h a n
             </h2>
@@ -126,9 +126,9 @@ const Slider = () => {
           style={{ backgroundColor: "rgba(0, 0, 0, .7)" }}
           className="absolute  w-full h-[450px] md:h-[600px]"
         >
-          <div className="bg-[#00000007] w-full  md:w-[550px]  shadow-lg rounded-lg  px-4 py-12 md:p-8 lg:p-12 relative md:top-32 md:left-24 space-y-6">
+          <div className="bg-[#00000007] w-full  md:w-[550px] lg:w-[750px] shadow-lg rounded-lg  px-4 py-12 md:py-8 lg:py-2 md:p-8 lg:p-12 relative md:top-32 md:left-24 space-y-6">
             <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-red-600 max-w-3xl lg:max-w-4xl uppercase">
-              K.G.F: C h a p t e r 2
+              K.G.F: C h a p t e r - 2
             </h2>
             <div className="text-white flex items-center gap-3">
               <p className="bg-yellow-600 px-4 py-2 rounded-sm">Action</p>
