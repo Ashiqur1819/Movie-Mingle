@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const ContactUs = () => {
   const {
@@ -7,23 +8,62 @@ const ContactUs = () => {
     watch,
     formState: { errors },
   } = useForm();
-  // const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const name = data.example;
+    const email = data.exampleRequired
+    const contactUser = {name, email}
 
-  // console.log(watch("example")); // watch input value by passing the name of it
+    // Send contact user data from client site to server site
+    fetch("https://movie-mingle-server-side.vercel.app/contact_users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(contactUser),
+    })
+    .then((res) => res.json())
+    .then(data => {
+      if (data.acknowledged) {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Congratulations",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
+
 
   return (
-    <div className=" bg-red-400 max-w-md mx-auto">
-      {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
+    <div className=" max-w-md mx-auto bg-[#002c31] p-12 rounded-md mt-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-yellow-500 text-center mb-6">
+        Contact Us
+      </h2>
+
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
-        {/* register your input into the hook by invoking the "register" function */}
-        <input defaultValue="test" {...register("example")} />
+        <input
+          type="text"
+          className="p-2 input mb-3"
+          placeholder="Name"
+          {...register("example")}
+        />
 
-        {/* include validation with required or other standard HTML validation rules */}
-        <input {...register("exampleRequired", { required: true })} />
-        {/* errors will return when field validation fails  */}
-        {errors.exampleRequired && <span>This field is required</span>}
+        <input
+          type="email"
+          className="p-2 input mb-3"
+          placeholder="Email"
+          
+          {...register("exampleRequired", { required: true })}
+        />
 
-        <input type="submit" />
+        {errors.exampleRequired && <span className="text-red-500">This field is required</span>}
+
+        <input
+          className="text-white p-2 bg-green-600 input cursor-pointer"
+          type="submit"
+        />
       </form>
     </div>
   );

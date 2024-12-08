@@ -8,7 +8,7 @@ const FeturedMovies = () => {
   const {toggle} = useContext(AuthContext)
 
   useEffect(() => {
-    fetch("https://movie-mingle-server-side.vercel.app/")
+    fetch("https://movie-mingle-server-side.vercel.app/movies")
       .then((res) => res.json())
       .then((data) => {
         setMovies(data);
@@ -30,7 +30,7 @@ const FeturedMovies = () => {
         </p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-        {sortedMovies.map((movie) => (
+        {sortedMovies.slice(0,6).map((movie) => (
           <Movie movie={movie} key={movie._id}></Movie>
         ))}
       </div>

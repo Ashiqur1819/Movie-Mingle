@@ -25,6 +25,10 @@ const AddMovie = () => {
     { value: "mystery", label: "Mystery" },
     { value: "crime", label: "Crime" },
     { value: "fantasy", label: "Fantasy" },
+    { value: "sci-fi", label: "Sci-Fi" },
+    { value: "biography", label: "Biography" },
+    { value: "history", label: "History" },
+    { value: "animation", label: "Animation" },
   ];
 
   const customStyles = {
@@ -99,7 +103,7 @@ const AddMovie = () => {
             text: `${title} Successfully Added!`,
           });
         }
-        // form.reset();
+        form.reset();
       });
   };
 

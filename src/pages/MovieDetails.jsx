@@ -3,6 +3,7 @@ import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { FavoriteContext } from "../layouts/MainLayout";
 import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
+import { Rating } from "react-simple-star-rating";
 
 const MovieDetails = () => {
   const movie = useLoaderData();
@@ -48,7 +49,7 @@ const MovieDetails = () => {
 
   return (
     <div className="w-11/12 mx-auto">
-      <div className="max-w-5xl mx-auto border grid md:grid-cols-2 items-center gap-12 mt-12 mb-12 p-6 md:p-12 rounded-md">
+      <div className="max-w-5xl mx-auto border grid md:grid-cols-2 items-center gap-12 mt-12 mb-12 p-6 md:p-8 rounded-md">
         <div className="h-full">
           <img
             src={poster}
@@ -58,13 +59,20 @@ const MovieDetails = () => {
         </div>
         <div>
           <div className="space-y-2">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-red-600">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-red-600 mb-6">
               {title}
             </h2>
-            <p className="text-gray-300">
-              <span className="text-lg font-semibold text-white">Genre: </span>
-              {genre}
-            </p>
+            <div className="flex flex-row gap-3 mt-2">
+              <p className="text-lg font-semibold text-white">Genre:</p>
+              {genre.map((g, index) => (
+                <p
+                  key={index}
+                  className="bg-gray-600 text-yellow-500 rounded-sm font-medium px-3 py-1 text-sm"
+                >
+                  {g}
+                </p>
+              ))}
+            </div>
             <p className="text-gray-300">
               <span className="text-lg font-semibold text-white">
                 Duration:{" "}
@@ -79,7 +87,7 @@ const MovieDetails = () => {
             </p>
             <p className="text-gray-300">
               <span className="text-lg font-semibold text-white">Rating: </span>
-              {rating}
+              <Rating size={25} initialValue={rating} readonly />
             </p>
             <p className="text-gray-300">
               <span className="text-lg font-semibold text-white">

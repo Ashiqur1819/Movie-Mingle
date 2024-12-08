@@ -23,7 +23,7 @@ const Movie = ({ movie }) => {
         />
       </figure>
       <div className="space-y-2 mt-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-red-600">{title}</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-red-600 mb-3">{title}</h2>
         <p className="text-gray-500 flex items-center gap-2">
           <span
             className={`text-lg font-semibold ${
@@ -70,7 +70,7 @@ const Movie = ({ movie }) => {
           >
             Rating:{" "}
           </span>
-          <Rating size={30} initialValue={rating} readonly />
+          <Rating size={25} initialValue={rating} readonly />
         </p>
       </div>
       <button className="bg-yellow-600 w-full px-6 py-2 rounded-md text-white font-semibold text-lg mt-6 hover:bg-amber-500">
