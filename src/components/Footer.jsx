@@ -14,18 +14,27 @@ const Footer = () => {
       <div className="text-white max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-12 lg:gap-24 px-4 md:px-8 lg:px-12 p-12">
         <div>
           <h2 className="text-5xl font-bold text-red-600">
-            Movie<span className={`${toggle ? "text-yellow-500" : "text-yellow-600"}`}>Mingle</span>
+            Movie
+            <span
+              className={`${toggle ? "text-yellow-500" : "text-yellow-600"}`}
+            >
+              Mingle
+            </span>
           </h2>
           <p className="mt-3 text-gray-500">
-            It is a platform where movie enthusiasts connect, discover, and
-            share their passion for films. Explore trending movies, read and
-            write reviews, rate your favorites, and join discussions with a
-            vibrant community of cinephiles. MovieMingle is your go-to hub for
-            everything cinema!
+            MovieMingle is a platform where film enthusiasts can connect,
+            discover, and share their passion for movies. Explore trending
+            films, read and write reviews, rate your favorites, and engage in
+            discussions with a vibrant community of cinephiles. MovieMingle is
+            your go-to hub for all things cinema!
           </p>
         </div>
         <div className="flex md:items-end flex-col justify-end">
-          <h3 className={`text-3xl font-bold mb-3 ${toggle ? "text-yellow-500" : "text-yellow-600"}`}>
+          <h3
+            className={`text-3xl font-bold mb-3 ${
+              toggle ? "text-yellow-500" : "text-yellow-600"
+            }`}
+          >
             Contact Us
           </h3>
           <p className="text-gray-500">
