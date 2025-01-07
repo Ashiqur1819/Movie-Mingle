@@ -10,7 +10,7 @@ import { MdLibraryAdd } from "react-icons/md";
 const MovieDetails = () => {
   const movie = useLoaderData();
   const { _id, poster, title, genre, year, duration, rating, summary } = movie;
-  const { user } = useContext(AuthContext);
+  const { toggle } = useContext(AuthContext);
   const { movies, setMovies, handleAddToFavourite } =
     useContext(FavoriteContext);
   const navigate = useNavigate();
@@ -51,7 +51,11 @@ const MovieDetails = () => {
 
   return (
     <div className="w-11/12 mx-auto">
-      <div className="max-w-5xl mx-auto border border-gray-700 grid lg:grid-cols-2 items-center gap-6 mt-12 mb-12 p-6 rounded-md">
+      <div
+        className={`max-w-5xl mx-auto  grid lg:grid-cols-2 items-center gap-6 mt-12 mb-12 p-6 rounded-md ${
+          toggle ? "bg-[#000e0f] border border-gray-700" : "bg-white border border-white"
+        }`}
+      >
         <div className="h-full">
           <img
             src={poster}
@@ -65,7 +69,13 @@ const MovieDetails = () => {
               {title}
             </h2>
             <div className="flex flex-row gap-3 mt-2">
-              <p className="text-lg font-semibold text-gray-300">Genre:</p>
+              <p
+                className={`text-lg font-semibold ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
+                Genre:
+              </p>
               {genre.map((g, index) => (
                 <p
                   key={index}
@@ -75,24 +85,42 @@ const MovieDetails = () => {
                 </p>
               ))}
             </div>
-            <p className="text-gray-300">
-              <span className="text-lg font-semibold text-gray-300">
+            <p className={`${toggle ? "text-gray-300" : "text-gray-600"}`}>
+              <span
+                className={`text-lg font-semibold ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Duration:{" "}
               </span>
               {duration} minutes
             </p>
-            <p className="text-gray-300">
-              <span className="text-lg font-semibold text-gray-300">
+            <p className={`${toggle ? "text-gray-300" : "text-gray-600"}`}>
+              <span
+                className={`text-lg font-semibold ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Releasing Year:{" "}
               </span>
               {year}
             </p>
-            <p className="text-gray-300">
-              <span className="text-lg font-semibold text-gray-300">Rating: </span>
+            <p className={`${toggle ? "text-gray-300" : "text-gray-600"}`}>
+              <span
+                className={`text-lg font-semibold ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
+                Rating:{" "}
+              </span>
               <Rating size={25} initialValue={rating} readonly />
             </p>
-            <p className="text-gray-400 text-justify">
-              <span className="text-lg font-semibold text-gray-300">
+            <p className={`text-justify ${toggle ? "text-gray-300" : "text-gray-600"}`}>
+              <span
+                className={`text-lg font-semibold ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Description:{" "}
               </span>
               {summary}
@@ -101,7 +129,7 @@ const MovieDetails = () => {
           <div className="md:flex items-center gap-6 mt-6">
             <button
               onClick={() => handleAddToFavourite(_id)}
-              className="bg-yellow-600 py-2 px-4 rounded-md text-gray-300 font-semibold text-lg hover:bg-amber-500"
+              className="bg-yellow-600 py-2 px-4 rounded-md text-white font-semibold text-lg hover:bg-amber-500"
             >
               <MdLibraryAdd className="text-xl"></MdLibraryAdd>
             </button>
@@ -109,20 +137,20 @@ const MovieDetails = () => {
               onClick={() => {
                 handleDeleteMovie(_id);
               }}
-              className="mt-3 md:mt-0 bg-red-700 px-4 py-2 rounded-md text-gray-300 font-semibold text-lg hover:bg-red-600"
+              className="mt-3 md:mt-0 bg-red-700 px-4 py-2 rounded-md text-white font-semibold text-lg hover:bg-red-600"
             >
               <FaTrashAlt className="text-xl"></FaTrashAlt>
             </button>
-          <button className=" bg-green-600 px-4 py-2 rounded-md text-gray-300 font-semibold text-lg hover:bg-green-500">
-            <Link to={`/update_movie/${_id}`}>
-              <FaEdit className="text-xl"></FaEdit>
-            </Link>
-          </button>
+            <button className=" bg-green-600 px-4 py-2 rounded-md text-white font-semibold text-lg hover:bg-green-500">
+              <Link to={`/update_movie/${_id}`}>
+                <FaEdit className="text-xl"></FaEdit>
+              </Link>
+            </button>
           </div>
         </div>
       </div>
       <div className="flex items-center justify-center mt-12">
-        <button className="bg-green-600 px-6 py-2 rounded-md text-gray-300 font-semibold text-lg hover:bg-green-500">
+        <button className="bg-green-600 px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-green-500">
           <Link to="/all_movies">See All Movies</Link>
         </button>
       </div>

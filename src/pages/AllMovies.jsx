@@ -37,7 +37,7 @@ const AllMovies = () => {
             placeholder="Search by Title..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="grow"
+            className={`grow ${toggle ? "text-gray-400" : "text-gray-600"}`}
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"

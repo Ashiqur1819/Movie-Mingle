@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import Select from "react-select";
 import { toast } from "react-toastify";
+import { AuthContext } from "../provider/AuthProvider";
 
 const UpdateMovie = () => {
+  const {toggle} = useContext(AuthContext)
   const [startDate, setStartDate] = useState(new Date());
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -30,8 +32,13 @@ const UpdateMovie = () => {
   const customStyles = {
     control: (provided) => ({
       ...provided,
-      backgroundColor: "#1D232A",
-      border: "none",
+      backgroundColor: toggle
+        ? "#000e0f"
+        : "rgb(249 250 251 / var(--tw-bg-opacity, 1))",
+      border: toggle
+        ? "border 1px solid #6B7280"
+        : "border 1px solid #E5E7EBB2",
+      borderRadius: "none",
       padding: "5px",
     }),
   };
@@ -103,12 +110,22 @@ const UpdateMovie = () => {
       });
   };
   return (
-    <div className="bg-[#000e0f] w-11/12 mx-auto">
-      <div className="max-w-3xl mx-auto mt-6 bg-[#000e0f] border border-gray-700 p-4 md:p-12 rounded-md">
+    <div
+      className={`w-11/12 mx-auto ${toggle ? "bg-[#000e0f]" : "bg-gray-100"}`}
+    >
+      <div
+        className={`max-w-3xl mx-auto mt-20 p-4 md:p-12 shadow-sm ${
+          toggle ? "bg-[#000e0f] border border-gray-700" : "bg-white"
+        }`}
+      >
         <h2 className="text-center text-4xl font-bold  text-amber-500 font-Rancho">
           Update Movie
         </h2>
-        <p className="text-center text-base text-gray-400 mt-3">
+        <p
+          className={`text-center mt-3 ${
+            toggle ? "text-gray-300" : "text-gray-600"
+          }`}
+        >
           An intuitive interface for adding movies to your collection. Provide
           details such as the movie poster, title, genre, duration, release
           year, rating, and a brief summary. Easily manage and enrich your movie
@@ -120,7 +137,11 @@ const UpdateMovie = () => {
         >
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-base text-gray-100">
+              <span
+                className={`label-text font-semibold text-base ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Poster:
               </span>
             </label>
@@ -128,12 +149,20 @@ const UpdateMovie = () => {
               type="text"
               name="poster"
               placeholder="Poster"
-              className="input input-bordered rounded-none text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
+              className={`input input-bordered rounded-none  focus:border-gray-300 ${
+                toggle
+                  ? "text-gray-300 bg-[#000e0f] border border-gray-500  "
+                  : "bg-gray-50 border border-gray-200 text-gray-600 "
+              }`}
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-base text-gray-100">
+              <span
+                className={`label-text font-semibold text-base ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Title:
               </span>
             </label>
@@ -141,12 +170,20 @@ const UpdateMovie = () => {
               type="text"
               name="title"
               placeholder="Title"
-              className="input input-bordered rounded-none text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
+              className={`input input-bordered rounded-none  focus:border-gray-300 ${
+                toggle
+                  ? "text-gray-300 bg-[#000e0f] border border-gray-500  "
+                  : "bg-gray-50 border border-gray-200 text-gray-600 "
+              }`}
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-base text-gray-100">
+              <span
+                className={`label-text font-semibold text-base ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Genre:
               </span>
             </label>
@@ -164,7 +201,11 @@ const UpdateMovie = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-base text-gray-100">
+              <span
+                className={`label-text font-semibold text-base ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Duration:
               </span>
             </label>
@@ -172,17 +213,29 @@ const UpdateMovie = () => {
               type="number"
               name="duration"
               placeholder="Duration"
-              className="input input-bordered rounded-none text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
+              className={`input input-bordered rounded-none  focus:border-gray-300 ${
+                toggle
+                  ? "text-gray-300 bg-[#000e0f] border border-gray-500  "
+                  : "bg-gray-50 border border-gray-200 text-gray-600 "
+              }`}
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-base text-gray-100">
+              <span
+                className={`label-text font-semibold text-base ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Release Year:
               </span>
             </label>
             <DatePicker
-              className="input input-bordered rounded-none text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300 w-full"
+              className={`input input-bordered rounded-none  focus:border-gray-300 w-full ${
+                toggle
+                  ? "border border-gray-500 bg-[#000e0f] text-gray-300 "
+                  : "bg-gray-50 text-gray-600"
+              }`}
               selected={startDate}
               onChange={(date) => setStartDate(date)}
               showYearPicker
@@ -191,7 +244,11 @@ const UpdateMovie = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-base text-gray-100">
+              <span
+                className={`label-text font-semibold text-base ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Rating:
               </span>
             </label>
@@ -199,19 +256,31 @@ const UpdateMovie = () => {
               type="number"
               name="rating"
               placeholder="Rating"
-              className="input input-bordered rounded-none text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
+              className={`input input-bordered rounded-none  focus:border-gray-300 ${
+                toggle
+                  ? "text-gray-300 bg-[#000e0f] border border-gray-500  "
+                  : "bg-gray-50 border border-gray-200 text-gray-600 "
+              }`}
             />
           </div>
           <div className="form-control col-span-2">
             <label className="label">
-              <span className="label-text font-semibold text-base text-gray-100">
+              <span
+                className={`label-text font-semibold text-base ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Summary :
               </span>
             </label>
             <textarea
               placeholder="Summary"
               name="summary"
-              className="textarea textarea-bordered rounded-none textarea-md text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300 w-full"
+              className={`textarea textarea-bordered rounded-none textarea-md  focus:border-gray-300 w-full ${
+                toggle
+                  ? "text-gray-300 border border-gray-500 bg-[#000e0f]"
+                  : "text-gray-600 bg-gray-50 border-gray-200"
+              }`}
             ></textarea>
           </div>
           <input

@@ -6,6 +6,10 @@ body{
   background-color: #000e0f;
 }
 
+.active{
+  text-decoration: underline;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
