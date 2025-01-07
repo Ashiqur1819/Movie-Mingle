@@ -51,8 +51,8 @@ const MainLayout = () => {
   };
   return (
     <FavoriteContext.Provider value={favoriteMovies}>
-      <div className={`max-w-7xl mx-auto ${toggle ? 'bg-[#001D20]' : "bg-white"}`}>
-        <header>
+      <div className={`max-w-7xl mx-auto ${toggle ? 'bg-[#000e0f]' : "bg-gray-100"}`}>
+        <header className="sticky top-0 z-10">
           <Navbar></Navbar>
         </header>
         <main>

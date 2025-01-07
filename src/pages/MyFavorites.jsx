@@ -4,7 +4,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const MyFavorites = () => {
   const [movies, setMovies] = useState([]);
-  const { user } = useContext(AuthContext);
+  const { user, toggle } = useContext(AuthContext);
   const email = user.email;
 
   const filteredMovies = movies.filter((movie) => movie?.userEmail === email);
@@ -21,17 +21,38 @@ const MyFavorites = () => {
   }, []);
 
   return (
-    <div className="px-4 md:px-8 lg:px-12">
+    <div className="px-3 md:px-5 lg:px-6 mt-20">
       <div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-          {filteredMovies.map((movie) => (
-            <FavoriteCard
-              movie={movie}
-              key={movie._id}
-              movies={movies}
-              setMovies={setMovies}
-            ></FavoriteCard>
-          ))}
+        <h2
+          className={`text-3xl md:text-4xl font-bold t ${
+            toggle ? "text-gray-300" : "text-gray-700"
+          }`}
+        >
+          My Favourite Movies
+        </h2>
+        <div className="overflow-x-auto mt-12">
+          <table className="table">
+            <thead>
+              <tr className="text-yellow-500 text-lg font-sans">
+                <th></th>
+                <th className="font-medium drop-shadow-sm">Movie Poster</th>
+                <th className="font-medium drop-shadow-sm">Movie Name</th>
+                <th className="font-medium drop-shadow-sm">Release Year</th>
+                <th className="font-medium drop-shadow-sm">Rating</th>
+                <th className="font-medium drop-shadow-sm">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredMovies.map((movie) => (
+                <FavoriteCard
+                  movie={movie}
+                  key={movie._id}
+                  movies={movies}
+                  setMovies={setMovies}
+                ></FavoriteCard>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

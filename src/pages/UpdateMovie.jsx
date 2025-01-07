@@ -24,6 +24,7 @@ const UpdateMovie = () => {
     { value: "adventure", label: "Adventure" },
     { value: "mystery", label: "Mystery" },
     { value: "crime", label: "Crime" },
+    { value: "sci-Fi", label: "Sci-Fi" },
   ];
 
   const customStyles = {
@@ -102,8 +103,8 @@ const UpdateMovie = () => {
       });
   };
   return (
-    <div className="bg-[#001D20] w-11/12 mx-auto">
-      <div className="max-w-3xl mx-auto mt-6 bg-[#1D232A] p-4 md:p-12 rounded-md">
+    <div className="bg-[#000e0f] w-11/12 mx-auto">
+      <div className="max-w-3xl mx-auto mt-6 bg-[#000e0f] border border-gray-700 p-4 md:p-12 rounded-md">
         <h2 className="text-center text-4xl font-bold  text-amber-500 font-Rancho">
           Update Movie
         </h2>

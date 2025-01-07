@@ -12,6 +12,7 @@ const Register = () => {
     createNewUser,
     updateUserProfile,
     setLoading,
+    toggle
   } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -88,14 +89,22 @@ const Register = () => {
 
   return (
     <div className="w-11/12 mx-auto">
-      <div className="card w-full mx-auto max-w-lg rounded-none shrink-0 shadow-2xl mt-12  bg-[#1D232A]">
+      <div
+        className={`card w-full mx-auto max-w-lg rounded-none shrink-0 shadow-sm mt-12 ${
+          toggle ? "bg-[#000e0f] border border-gray-700" : "bg-white"
+        }`}
+      >
         <h2 className="text-3xl md:text-4xl font-bold text-center mt-6 text-green-500">
           Create A New Account
         </h2>
         <form onSubmit={handleRegister} className="card-body px-8 py-0 mt-8">
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-base text-gray-100">
+              <span
+                className={`label-text font-semibold text-base ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Name:
               </span>
             </label>
@@ -103,13 +112,21 @@ const Register = () => {
               type="text"
               name="name"
               placeholder="Enter your name"
-              className="input input-bordered rounded-none text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
+              className={`input input-bordered rounded-none  focus:border-gray-300 ${
+                toggle
+                  ? "text-gray-300 bg-[#000e0f] border border-gray-500  "
+                  : "bg-gray-50 border border-gray-200 text-gray-600 "
+              }`}
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-base text-gray-100">
+              <span
+                className={`label-text font-semibold text-base ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Email:
               </span>
             </label>
@@ -117,13 +134,21 @@ const Register = () => {
               type="email"
               name="email"
               placeholder="Enter your email"
-              className="input input-bordered rounded-none text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
+              className={`input input-bordered rounded-none  focus:border-gray-300 ${
+                toggle
+                  ? "text-gray-300 bg-[#000e0f] border border-gray-500  "
+                  : "bg-gray-50 border border-gray-200 text-gray-600 "
+              }`}
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-base text-gray-100">
+              <span
+                className={`label-text font-semibold text-base ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Photo URL:
               </span>
             </label>
@@ -131,13 +156,21 @@ const Register = () => {
               type="text"
               name="photo"
               placeholder="Enter your photo url"
-              className="input input-bordered rounded-none text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
+              className={`input input-bordered rounded-none  focus:border-gray-300 ${
+                toggle
+                  ? "text-gray-300 bg-[#000e0f] border border-gray-500  "
+                  : "bg-gray-50 border border-gray-200 text-gray-600 "
+              }`}
               required
             />
           </div>
           <div className="form-control relative">
             <label className="label">
-              <span className="label-text font-semibold text-base text-gray-100">
+              <span
+                className={`label-text font-semibold text-base ${
+                  toggle ? "text-gray-300" : "text-gray-700"
+                }`}
+              >
                 Password:
               </span>
             </label>
@@ -145,7 +178,11 @@ const Register = () => {
               type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Enter your password"
-              className="input input-bordered rounded-none text-white border border-gray-500 bg-[#1D232A] focus:border-gray-300"
+              className={`input input-bordered rounded-none  focus:border-gray-300 ${
+                toggle
+                  ? "text-gray-300 bg-[#000e0f] border border-gray-500  "
+                  : "bg-gray-50 border border-gray-200 text-gray-600 "
+              }`}
               required
             />
             <button
@@ -157,15 +194,19 @@ const Register = () => {
             </button>
           </div>
           <div className="form-control mt-6">
-            <button className="py-2 px-6 text-lg bg-yellow-600  text-white cursor-pointer font-semibold hover:bg-amber-500 ">
+            <button className="py-2 px-6 text-lg bg-yellow-500  text-white cursor-pointer font-semibold hover:bg-amber-500 ">
               Register
             </button>
           </div>
         </form>
         <div className="px-8">
-          <h4 className="text-center text-lg my-2 font-medium text-white">
-            Or
-          </h4>
+          <div
+            className={`divider font-medium ${
+              toggle ? "text-gray-300" : "text-gray-600"
+            }`}
+          >
+            OR
+          </div>
           <button
             onClick={handleLoginWithGoogle}
             className="py-2 px-6 w-full text-lg border border-green-500  text-green-500 cursor-pointer font-medium hover:bg-green-600 hover:text-white hover:border-white"
@@ -176,9 +217,13 @@ const Register = () => {
             </div>
           </button>
         </div>
-        <p className="text-center mt-3 mb-6 text-gray-300">
+        <p
+          className={`text-center mt-3 mb-6 ${
+            toggle ? "text-gray-300" : "text-gray-600"
+          }`}
+        >
           Already have an account?{" "}
-          <Link to="/login" className="underline font-medium text-yellow-600">
+          <Link to="/login" className="underline font-medium text-yellow-500">
             Login
           </Link>
         </p>

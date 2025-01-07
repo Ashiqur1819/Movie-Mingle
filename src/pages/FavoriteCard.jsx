@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import { FaTrash } from "react-icons/fa";
 import { Rating } from "react-simple-star-rating";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
 const FavoriteCard = ({ movie, movies, setMovies }) => {
-  const { _id, poster, title, genre, year, duration, rating } = movie;
+  const {toggle} = useContext(AuthContext)
+  const { _id, poster, title, year, rating } = movie;
 
   const handleDeleteFavourite = (_id) => {
 
@@ -39,46 +43,43 @@ const FavoriteCard = ({ movie, movies, setMovies }) => {
 
 
   return (
-    <div className="border border-gray-600 p-5 rounded-md bg-[#081718a9]">
-      <figure>
-        <img
-          src={poster}
-          className="h-52 w-full object-cover rounded-md"
-          alt=""
-        />
-      </figure>
-      <div className="space-y-2 mt-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-green-500">
-          {title}
-        </h2>
-        <p className="text-gray-300 flex items-center gap-2">
-          <span className="text-lg font-semibold text-white">Genre: </span>|
-          {genre?.map((singleGenre, index) => (
-            <p key={index}>{singleGenre} |</p>
-          ))}
-        </p>
-        <p className="text-gray-300">
-          <span className="text-lg font-semibold text-white">Duration: </span>
-          {duration} minutes
-        </p>
-        <p className="text-gray-300">
-          <span className="text-lg font-semibold text-white">
-            Releasing Year:{" "}
-          </span>
-          {year}
-        </p>
-        <p className="text-gray-300 flex items-center gap-2">
-          <span className="text-lg font-semibold text-white">Rating: </span>
-          <Rating size={30} initialValue={rating} readonly />
-        </p>
-      </div>
-      <button
-        onClick={() => handleDeleteFavourite(_id)}
-        className="bg-red-700 w-full px-6 py-2 rounded-md text-white font-semibold text-lg mt-6 hover:bg-red-600"
+    <tr>
+      <td></td>
+      <td>
+        <div className="flex items-center gap-3">
+          <div className="avatar">
+            <div className="mask mask-squircle h-12 w-12">
+              <img src={poster} alt="Avatar Tailwind CSS Component" />
+            </div>
+          </div>
+        </div>
+      </td>
+      <td
+        className={`font-medium text-base ${
+          toggle ? "text-gray-300 " : "text-gray-600"
+        }`}
       >
-        Delete
-      </button>
-    </div>
+        {title}
+      </td>
+      <td
+        className={`font-medium text-base ${
+          toggle ? "text-gray-300 " : "text-gray-600"
+        }`}
+      >
+        {year}
+      </td>
+      <td>
+        <Rating initialValue={rating} size={24}></Rating>
+      </td>
+      <th>
+        <button
+          onClick={() => handleDeleteFavourite(_id)}
+          className="bg-red-600 p-2 rounded-sm text-gray-300"
+        >
+          <FaTrash></FaTrash>
+        </button>
+      </th>
+    </tr>
   );
 };
 

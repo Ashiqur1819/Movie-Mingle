@@ -6,15 +6,11 @@ const TrendingMovie = ({movie}) => {
       const {_id, poster, title, genre, year, duration, rating, summary } = movie;
       const {toggle} = useContext(AuthContext)
     return (
-      <div
-        className={` rounded-lg p-6 ${
-          toggle ? "border border-gray-700" : " bg-gray-200 shadow-md"
-        }`}
-      >
+      <div className={` ${toggle ? "border border-gray-700" : " bg-white"}`}>
         <div>
-          <img src={poster} className="rounded-lg" alt="" />
+          <img src={poster} alt="" />
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 p-6">
           <h2 className="text-3xl md:text-4xl mt-4  font-bold text-red-600">
             {title}
           </h2>
@@ -22,14 +18,17 @@ const TrendingMovie = ({movie}) => {
             <div className="text-gray-300 flex items-center gap-2">
               <span
                 className={`text-lg font-semibold ${
-                  toggle ? "text-white" : "text-gray-900"
+                  toggle ? "text-gray-300" : "text-gray-700"
                 }`}
               >
                 Genre:{" "}
               </span>
               <div className="flex flex-row gap-3 mt-2">
                 {genre.map((g, index) => (
-                  <p key={index} className="bg-gray-600 text-yellow-500 rounded-sm font-medium px-3 py-1 text-sm">
+                  <p
+                    key={index}
+                    className="bg-gray-600 text-yellow-500 rounded-sm font-medium px-3 py-1 text-sm"
+                  >
                     {g}
                   </p>
                 ))}
@@ -38,7 +37,7 @@ const TrendingMovie = ({movie}) => {
             <p className={`${toggle ? "text-gray-300" : "text-gray-600"} mt-2`}>
               <span
                 className={`text-lg font-semibold ${
-                  toggle ? "text-white" : "text-gray-900"
+                  toggle ? "text-gray-300" : "text-gray-700"
                 }`}
               >
                 Duration:{" "}
@@ -50,7 +49,7 @@ const TrendingMovie = ({movie}) => {
             <p className={`${toggle ? "text-gray-300" : "text-gray-600"}`}>
               <span
                 className={`text-lg font-semibold ${
-                  toggle ? "text-white" : "text-gray-900"
+                  toggle ? "text-gray-300" : "text-gray-700"
                 }`}
               >
                 Releasing Year:{" "}
@@ -60,7 +59,7 @@ const TrendingMovie = ({movie}) => {
             <p className={`${toggle ? "text-gray-300" : "text-gray-600"}`}>
               <span
                 className={`text-lg font-semibold ${
-                  toggle ? "text-white" : "text-gray-900"
+                  toggle ? "text-gray-300" : "text-gray-700"
                 }`}
               >
                 Rating:{" "}
@@ -68,20 +67,22 @@ const TrendingMovie = ({movie}) => {
               {rating}/5
             </p>
           </div>
-          <p className={`${toggle ? "text-gray-300" : "text-gray-600"}`}>
+          <p className={`${toggle ? "text-gray-400" : "text-gray-600"}`}>
             <span
               className={`text-lg font-semibold ${
-                toggle ? "text-white" : "text-gray-900"
+                toggle ? "text-gray-300" : "text-gray-700"
               }`}
             >
               Description:{" "}
             </span>
-            {summary}
+            {summary.substring(0, 250)}...
           </p>
         </div>
-        <button className="bg-green-600 w-full px-6 py-2 rounded-md text-white font-semibold text-lg mt-6 hover:bg-green-500">
-          <Link to={`/movie_details/${_id}`}>See Details</Link>
-        </button>
+        <div className='p-6'>
+          <button className="bg-green-600 w-full md:w-fit px-6 py-2 text-white font-semibold text-base hover:bg-green-500">
+            <Link to={`/movie_details/${_id}`}>See Details</Link>
+          </button>
+        </div>
       </div>
     );
 };

@@ -10,7 +10,7 @@ const Navbar = () => {
 
 
   const links = (
-    <div className="lg:flex items-center gap-4">
+    <div className="lg:flex items-center gap-8 ">
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
@@ -28,12 +28,15 @@ const Navbar = () => {
         </li>
       )}
       <li>
+        <NavLink to="/about">About Us</NavLink>
+      </li>
+      <li>
         <NavLink to="/contact">Contact Us</NavLink>
       </li>
       <button
         type="button"
         onClick={() => handleToggle(setToggle(!toggle))}
-        className={`text-xl border border-gray-300 p-2 rounded-full ml-4 mt-2 lg:mt-0 ${
+        className={`text-sm border-2 border-yellow-500 p-2 rounded-full ml-4 mt-2 lg:mt-0 ${
           toggle ? "bg-black" : "bg-white"
         }`}
       >
@@ -49,7 +52,11 @@ const Navbar = () => {
   
 
   return (
-    <div className={`navbar px-4 md:px-8 lg:px-12 py-6 ${toggle ? "bg-[#001D20]" : "bg-white"}`}>
+    <div
+      className={`navbar px-3 md:px-5 lg:px-6 py-4 ${
+        toggle ? "bg-[#000e0f]" : "bg-gray-200"
+      }`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="lg:hidden mr-2">
@@ -70,7 +77,9 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-md dropdown-content bg-gray-900 rounded-box z-[1] mt-6 w-60 p-2 shadow text-white"
+            className={`menu menu-sm  dropdown-content bg-[#000e0f] rounded-box z-[1] mt-6 w-60 p-3 shadow ${
+              toggle ? "text-gray-300" : "text-gray-700"
+            }`}
           >
             {links}
           </ul>
@@ -81,7 +90,11 @@ const Navbar = () => {
         {/* <img src={logo} className="w-16 md:hidden" alt="" /> */}
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px- gap-6 text-base text-gray-400">
+        <ul
+          className={`menu-horizontal flex text-base  text-gray-300 ${
+            toggle ? "text-gray-300" : "text-gray-700"
+          }`}
+        >
           {links}
         </ul>
       </div>
@@ -93,7 +106,7 @@ const Navbar = () => {
               data-tip={user?.displayName}
             >
               <img
-                className="w-10 md:w-12 rounded-full cursor-pointer"
+                className="w-8 md:w-10 rounded-full cursor-pointer"
                 src={user?.photoURL}
                 alt=""
               />
@@ -102,7 +115,7 @@ const Navbar = () => {
               <NavLink
                 onClick={logOut}
                 to="/"
-                className="py-2 px-6 md:text-lg rounded-lg bg-red-700 text-white cursor-pointer font-semibold hover:bg-red-600"
+                className="py-2 px-6 text-sm rounded-lg bg-red-700 text-white cursor-pointer font-semibold hover:bg-red-600"
               >
                 Log Out
               </NavLink>
@@ -110,11 +123,8 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="flex items-center gap-3 md:gap-6">
-            <button className="bg-green-600 px-3 md:px-6 py-2 rounded-md text-white font-semibold text-sm md:text-lg hover:bg-green-500">
+            <button className="bg-green-600 px-3 md:px-6 py-2 rounded-md text-white font-semibold text-sm  hover:bg-green-500">
               <NavLink to="/login">Log In</NavLink>
-            </button>
-            <button className="bg-yellow-600 px-2 md:px-6 py-2 rounded-md text-white font-semibold text-sm md:text-lg hover:bg-amber-500">
-              <NavLink to="/register">Register</NavLink>
             </button>
           </div>
         )}

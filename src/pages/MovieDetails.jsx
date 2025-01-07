@@ -4,6 +4,8 @@ import { FavoriteContext } from "../layouts/MainLayout";
 import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
 import { Rating } from "react-simple-star-rating";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { MdLibraryAdd } from "react-icons/md";
 
 const MovieDetails = () => {
   const movie = useLoaderData();
@@ -49,7 +51,7 @@ const MovieDetails = () => {
 
   return (
     <div className="w-11/12 mx-auto">
-      <div className="max-w-5xl mx-auto border grid lg:grid-cols-2 items-center gap-12 mt-12 mb-12 p-6 md:p-8 rounded-md">
+      <div className="max-w-5xl mx-auto border border-gray-700 grid lg:grid-cols-2 items-center gap-6 mt-12 mb-12 p-6 rounded-md">
         <div className="h-full">
           <img
             src={poster}
@@ -63,7 +65,7 @@ const MovieDetails = () => {
               {title}
             </h2>
             <div className="flex flex-row gap-3 mt-2">
-              <p className="text-lg font-semibold text-white">Genre:</p>
+              <p className="text-lg font-semibold text-gray-300">Genre:</p>
               {genre.map((g, index) => (
                 <p
                   key={index}
@@ -74,51 +76,53 @@ const MovieDetails = () => {
               ))}
             </div>
             <p className="text-gray-300">
-              <span className="text-lg font-semibold text-white">
+              <span className="text-lg font-semibold text-gray-300">
                 Duration:{" "}
               </span>
               {duration} minutes
             </p>
             <p className="text-gray-300">
-              <span className="text-lg font-semibold text-white">
+              <span className="text-lg font-semibold text-gray-300">
                 Releasing Year:{" "}
               </span>
               {year}
             </p>
             <p className="text-gray-300">
-              <span className="text-lg font-semibold text-white">Rating: </span>
+              <span className="text-lg font-semibold text-gray-300">Rating: </span>
               <Rating size={25} initialValue={rating} readonly />
             </p>
-            <p className="text-gray-300">
-              <span className="text-lg font-semibold text-white">
+            <p className="text-gray-400 text-justify">
+              <span className="text-lg font-semibold text-gray-300">
                 Description:{" "}
               </span>
               {summary}
             </p>
           </div>
-          <div className="md:flex items-center gap-3 mt-6">
+          <div className="md:flex items-center gap-6 mt-6">
             <button
               onClick={() => handleAddToFavourite(_id)}
-              className="bg-yellow-600 w-full px-6 py-3 rounded-md text-white font-semibold text-lg hover:bg-amber-500"
+              className="bg-yellow-600 py-2 px-4 rounded-md text-gray-300 font-semibold text-lg hover:bg-amber-500"
             >
-              Add To Favourite
+              <MdLibraryAdd className="text-xl"></MdLibraryAdd>
             </button>
             <button
               onClick={() => {
                 handleDeleteMovie(_id);
               }}
-              className="mt-3 md:mt-0 bg-red-700 w-full px-6 py-3 rounded-md text-white font-semibold text-lg hover:bg-red-600"
+              className="mt-3 md:mt-0 bg-red-700 px-4 py-2 rounded-md text-gray-300 font-semibold text-lg hover:bg-red-600"
             >
-              Delete Movie
+              <FaTrashAlt className="text-xl"></FaTrashAlt>
             </button>
-          </div>
-          <button className="mt-3 bg-green-600 w-full px-6 py-3 rounded-md text-white font-semibold text-lg hover:bg-green-500">
-            <Link to={`/update_movie/${_id}`}>Update Movie</Link>
+          <button className=" bg-green-600 px-4 py-2 rounded-md text-gray-300 font-semibold text-lg hover:bg-green-500">
+            <Link to={`/update_movie/${_id}`}>
+              <FaEdit className="text-xl"></FaEdit>
+            </Link>
           </button>
+          </div>
         </div>
       </div>
       <div className="flex items-center justify-center mt-12">
-        <button className="bg-green-600 px-6 py-2 rounded-md text-white font-semibold text-lg hover:bg-green-500">
+        <button className="bg-green-600 px-6 py-2 rounded-md text-gray-300 font-semibold text-lg hover:bg-green-500">
           <Link to="/all_movies">See All Movies</Link>
         </button>
       </div>

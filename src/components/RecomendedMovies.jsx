@@ -18,9 +18,7 @@ const RecomendedMovies = () => {
     return (
       <div>
         <h2
-          className={`text-3xl md:text-4xl lg:text-5xl font-bold ${
-            toggle ? "text-yellow-500" : "text-yellow-600"
-          }`}
+          className={`text-3xl md:text-4xl lg:text-5xl font-bold text-yellow-500 drop-shadow-sm`}
         >
           Recomended For You
         </h2>
