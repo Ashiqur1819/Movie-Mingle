@@ -24,9 +24,9 @@ const AllMovies = () => {
 
   return (
     <div className="px-4 md:px-8 lg:px-12 mt-20">
-      <div className="flex items-center gap-6">
+      <div className="md:flex items-center gap-6">
         <label
-          className={`input input-bordered flex items-center gap-2 rounded-md text-white  ${
+          className={`input mt-3 input-bordered flex items-center gap-2 rounded-md text-white  ${
             toggle
               ? "bg-[#000e0f] border border-gray-600 "
               : "bg-white border border-gray-300 text-gray-600"
@@ -53,7 +53,7 @@ const AllMovies = () => {
           </svg>
         </label>
         <label
-          className={`form-control rounded-lg ${
+          className={`form-control mt-3 rounded-lg ${
             toggle ? "border border-gray-500" : "border border-gray-100"
           }`}
         >

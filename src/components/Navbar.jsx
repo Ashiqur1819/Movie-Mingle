@@ -78,16 +78,15 @@ const Navbar = () => {
           <ul
             tabIndex={0}
             className={`menu menu-sm  dropdown-content bg-[#000e0f] rounded-box z-[1] mt-6 w-60 p-3 shadow ${
-              toggle ? "text-gray-300" : "text-gray-700"
+              toggle ? "text-gray-300 bg-[#000e0f]" : "text-gray-700 bg-white"
             }`}
           >
             {links}
           </ul>
         </div>
-        <a className="text-lg text-red-600 md:text-3xl font-bold md:inline-block">
+        <a className="text-xl text-red-600 md:text-3xl font-bold md:inline-block">
           Movie<span className="text-yellow-500">Mingle</span>
         </a>
-        {/* <img src={logo} className="w-16 md:hidden" alt="" /> */}
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul

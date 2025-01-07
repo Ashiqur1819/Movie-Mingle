@@ -126,7 +126,7 @@ const MovieDetails = () => {
               {summary}
             </p>
           </div>
-          <div className="md:flex items-center gap-6 mt-6">
+          <div className="flex items-center gap-6 mt-6">
             <button
               onClick={() => handleAddToFavourite(_id)}
               className="bg-yellow-600 py-2 px-4 rounded-md text-white font-semibold text-lg hover:bg-amber-500"
@@ -137,7 +137,7 @@ const MovieDetails = () => {
               onClick={() => {
                 handleDeleteMovie(_id);
               }}
-              className="mt-3 md:mt-0 bg-red-700 px-4 py-2 rounded-md text-white font-semibold text-lg hover:bg-red-600"
+              className=" bg-red-700 px-4 py-2 rounded-md text-white font-semibold text-lg hover:bg-red-600"
             >
               <FaTrashAlt className="text-xl"></FaTrashAlt>
             </button>

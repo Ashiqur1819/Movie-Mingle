@@ -55,14 +55,22 @@ const ContactUs = () => {
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
           <input
             type="text"
-            className="p-2 input mb-3 input-bordered"
+            className={`input input-bordered rounded-none  focus:border-gray-300 ${
+              toggle
+                ? "text-gray-300 bg-[#000e0f] border border-gray-500  "
+                : "bg-gray-50 border border-gray-200 text-gray-600 "
+            }`}
             placeholder="Name"
             {...register("example")}
           />
 
           <input
             type="email"
-            className="p-2 input mb-3 input-bordered"
+            className={`input input-bordered rounded-none  focus:border-gray-300 mt-3 ${
+              toggle
+                ? "text-gray-300 bg-[#000e0f] border border-gray-500  "
+                : "bg-gray-50 border border-gray-200 text-gray-600 "
+            }`}
             placeholder="Email"
             {...register("exampleRequired", { required: true })}
           />
@@ -70,9 +78,17 @@ const ContactUs = () => {
           {errors.exampleRequired && (
             <span className="text-red-500">This field is required</span>
           )}
-
+          <textarea
+            placeholder="Message"
+            name="message"
+            className={`textarea mt-3 textarea-bordered rounded-none textarea-md  focus:border-gray-300 w-full ${
+              toggle
+                ? "text-gray-300 border border-gray-500 bg-[#000e0f]"
+                : "text-gray-600 bg-gray-50 border-gray-200"
+            }`}
+          ></textarea>
           <input
-            className="text-white p-2 bg-green-600 input cursor-pointer font-medium"
+            className="text-white p-2 bg-green-600 input rounded-none mt-3 cursor-pointer font-medium"
             type="submit"
             value="Submit"
           />
