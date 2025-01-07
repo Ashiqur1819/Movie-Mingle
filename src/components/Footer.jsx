@@ -7,18 +7,26 @@ import {
 } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
 import { Link } from "react-router-dom";
+import logo from "../../public/assets/logo.png"
 
 const Footer = () => {
   const {toggle} = useContext(AuthContext)
   return (
     <footer className={` mt-24 ${toggle ? "bg-[#000e0f]" : "bg-gray-200"}`}>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-24 px-3 md:px-5 lg:px-6 p-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-24 px-3 md:px-5 lg:px-6 p-12">
         <div className="md:col-span-2">
-          <h2 className="text-5xl font-bold text-red-600">
-            Movie
-            <span className={`text-yellow-500`}>Mingle</span>
-          </h2>
-          <p className={`mt-3 text-justify  ${toggle ? "text-gray-400" : "text-gray-600"}`}>
+          <div className="flex items-center gap-2">
+            <img src={logo} className="w-16 md:w-24" alt="" />
+            <h2 className="text-4xl lg:text-5xl font-bold text-red-600">
+              Movie
+              <span className={`text-yellow-500`}>Mingle</span>
+            </h2>
+          </div>
+          <p
+            className={`mt-3 text-justify  ${
+              toggle ? "text-gray-400" : "text-gray-600"
+            }`}
+          >
             MovieMingle is a platform where film enthusiasts can connect,
             discover, and share their passion for movies. Explore trending
             films, read and write reviews, rate your favorites, and engage in
