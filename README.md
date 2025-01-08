@@ -1,14 +1,12 @@
 # MovieMingle
 
-**MovieMingle** is a movie discovery platform designed for movie enthusiasts. It allows users to explore a wide variety of movies, view detailed information, and manage their personal favorite movies. Built with React.js, the platform offers a seamless and interactive experience for movie lovers.
-
 ![MovieMingle Screenshot](https://i.ibb.co.com/qRYTBF0/movie-mingle.png)
 
 ---
 
 ## Overview
 
-MovieMingle is designed to provide a simple yet powerful interface for discovering, exploring, and managing movies. With a user-friendly design and integration with Firebase for authentication, it allows users to access all the movie information they need and keep their favorite movies updated.
+**MovieMingle** is an engaging movie discovery platform crafted for cinema enthusiasts. Users can explore an extensive library of movies, access detailed information, and curate their personal favorites list. With features like dynamic search, genre filtering, and user-friendly interfaces, MovieMingle enhances the browsing experience. Built using React.js, it ensures responsiveness and interactivity, delivering a seamless journey for users. This platform fosters a vibrant movie-loving community while prioritizing ease of use and visually appealing design for an enriched cinematic exploration.
 
 ---
 
@@ -23,6 +21,13 @@ MovieMingle is designed to provide a simple yet powerful interface for discoveri
 - **Swiper**: For creating interactive image carousels.
 - **Firebase**: For user authentication.
 
+### Backend
+- **Node.js**: JavaScript runtime for server-side development.
+- **Express.js**: Web framework for building RESTful APIs.
+- **MongoDB**: NoSQL database for storing application data.
+- **Cors**: To enable Cross-Origin Resource Sharing.
+- **dotenv**: For managing environment variables securely.
+
 ### Styling
 - **Tailwind CSS**: For utility-first CSS framework for styling components.
 
@@ -36,7 +41,7 @@ MovieMingle is designed to provide a simple yet powerful interface for discoveri
 ## Main Features
 - **Movie Search**: Search movies by title, genre, or release date.
 - **View Movie Details**: Access detailed information including plot, cast, and rating.
-- **Manage Favorites**: Add and remove movies from your personal favorite list.
+- **Manage Favorites**: Add and remove movies from your favorite list.
 - **User Authentication**: Secure login and registration using Firebase.
 - **Responsive Design**: Fully responsive layout ensuring a seamless experience across all devices.
 
@@ -87,19 +92,27 @@ Here are the key development dependencies used:
 
 ## How to Run Locally
 
-Follow these steps to run MovieMingle on your local machine:
+To run **Movie Mingle** locally, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/Ashiqur1819/Movie-Mingle-Client.git
-   cd Movie-Mingle-Client
+   git clone https://github.com/Ashiqur1819/Movie-Mingle.git
+   cd Movie-Mingle
 
-```bash
-npm install
-npm run dev
-```
+2. **Install dependencies:**:
+   ```bash
+   npm install
+
+3. **Start the Application:**:
+   ```bash
+   npm run dev
 
 ## Live Demo
+### Live Link:
 https://moviemingle-4ec41.web.app
+### Client-Side Github Repository:
+https://github.com/Ashiqur1819/Movie-Mingle
+### Server-Side Github Repository:
+https://github.com/Ashiqur1819/Movie-Mingle-Server
 
 ---
