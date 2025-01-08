@@ -2,7 +2,7 @@
 
 **MovieMingle** is a movie discovery platform designed for movie enthusiasts. It allows users to explore a wide variety of movies, view detailed information, and manage their personal favorite movies. Built with React.js, the platform offers a seamless and interactive experience for movie lovers.
 
-![MovieMingle Screenshot](https://i.ibb.co.com/YjGsWQJ/movie-mingle.png)
+![MovieMingle Screenshot](https://i.ibb.co.com/qRYTBF0/movie-mingle.png)
 
 ---
 
