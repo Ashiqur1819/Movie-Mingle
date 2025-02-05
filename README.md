@@ -1,6 +1,6 @@
 # MovieMingle
 
-![MovieMingle Screenshot](https://i.ibb.co.com/qRYTBF0/movie-mingle.png)
+![MovieMingle Screenshot](https://i.ibb.co.com/21v3BQPy/moviemingle.png)
 
 ---
 
